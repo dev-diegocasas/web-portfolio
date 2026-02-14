@@ -5,6 +5,7 @@
     /* Colors */
     --color-bg-primary: #FAFAF9;
     --color-bg-secondary: #F5F5F4;
+    --color-bg-projects: #E8E3DF;
     --color-text-primary: #1A1A1A;
     --color-text-secondary: #57534E;
     --color-text-tertiary: #78716C;
@@ -357,10 +358,28 @@ main {
    ========================================== */
 .section {
     padding: var(--spacing-3xl) var(--spacing-md);
+    /* FIX: Agregar padding-top adicional para evitar sobreposición */
+    scroll-margin-top: 90px;
 }
 
 .section:nth-child(even) {
     background-color: var(--color-bg-secondary);
+}
+
+/* Background especial para la sección de proyectos */
+.section-projects {
+    background-color: var(--color-bg-projects) !important;
+    position: relative;
+}
+
+.section-projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary));
 }
 
 .section-container {
@@ -404,108 +423,7 @@ main {
 }
 
 /* ==========================================
-   Skills Section
-   ========================================== */
-.skills-grid {
-    display: grid;
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-2xl);
-}
-
-.skill-category {
-    background-color: var(--color-white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-    transition: all var(--transition-base);
-}
-
-.skill-category:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
-}
-
-.skill-category-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: var(--spacing-md);
-    color: var(--color-accent-primary);
-}
-
-.skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.skill-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-xs) 0;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.skill-item:last-child {
-    border-bottom: none;
-}
-
-.skill-name {
-    font-size: 0.95rem;
-    color: var(--color-text-primary);
-}
-
-.skill-level {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--color-text-tertiary);
-    background-color: var(--color-bg-secondary);
-    padding: 4px 8px;
-    border-radius: var(--radius-sm);
-}
-
-/* Soft Skills */
-.soft-skills {
-    margin-top: var(--spacing-2xl);
-}
-
-.soft-skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-}
-
-.soft-skill-item {
-    background-color: var(--color-white);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xs);
-    text-align: center;
-    transition: all var(--transition-fast);
-}
-
-.soft-skill-item:hover {
-    border-color: var(--color-accent-secondary);
-    transform: scale(1.05);
-}
-
-.soft-skill-icon {
-    font-size: 2rem;
-}
-
-.soft-skill-name {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-text-secondary);
-}
-
-/* ==========================================
-   Education & Experience Cards
+   Experience & Education Cards
    ========================================== */
 .education-list,
 .experience-list {
@@ -590,6 +508,63 @@ main {
     left: 0;
     color: var(--color-accent-secondary);
     font-weight: 600;
+}
+
+/* ==========================================
+   Certifications Section
+   ========================================== */
+.certifications-section {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 2px solid var(--color-border);
+}
+
+.certifications-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-accent-primary);
+}
+
+.certifications-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cert-item {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-fast);
+}
+
+.cert-item:hover {
+    border-color: var(--color-accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.cert-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+}
+
+.cert-org {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+}
+
+.cert-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
 }
 
 /* ==========================================
@@ -682,6 +657,95 @@ main {
 
 .project-link:hover {
     color: var(--color-accent-primary);
+}
+
+/* ==========================================
+   Skills Section - NUEVA ESTRUCTURA
+   ========================================== */
+.skills-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.skill-category {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+}
+
+.skill-category:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.skill-category-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-accent-primary);
+}
+
+/* Nuevo estilo para tech badges */
+.tech-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.tech-badge {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-secondary);
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.tech-badge:hover {
+    background-color: var(--color-accent-primary);
+    color: var(--color-white);
+    border-color: var(--color-accent-primary);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   Soft Skills - VERSIÓN COMPACTA
+   ========================================== */
+.soft-skills-compact {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 2px solid var(--color-border);
+}
+
+.soft-skills-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.soft-skill-badge {
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.soft-skill-badge:hover {
+    border-color: var(--color-accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 /* ==========================================
@@ -797,16 +861,17 @@ main {
     
     /* Skills Grid Desktop */
     .skills-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .soft-skills-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     
     /* Projects Grid Desktop */
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Certifications Grid Desktop */
+    .certifications-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -822,8 +887,8 @@ main {
         font-size: 3rem;
     }
     
-    .soft-skills-grid {
-        grid-template-columns: repeat(6, 1fr);
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
