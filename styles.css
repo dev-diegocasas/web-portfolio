@@ -240,20 +240,22 @@ main {
 }
 
 /* ==========================================
-   Hero Section
+   Hero Section - SIN IMAGEN
    ========================================== */
 .hero {
-    padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-2xl);
+    padding: var(--spacing-3xl) var(--spacing-md);
     min-height: auto;
     display: flex;
     align-items: center;
+    justify-content: center;
     background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
 }
 
 .hero-content {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     width: 100%;
+    text-align: center;
     animation: heroSlide 0.8s ease-out 0.2s backwards;
 }
 
@@ -266,38 +268,6 @@ main {
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-.hero-image-wrapper {
-    margin-bottom: var(--spacing-xl);
-}
-
-.image-frame {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.image-frame::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border: 2px solid var(--color-accent-primary);
-    border-radius: var(--radius-lg);
-    z-index: -1;
-}
-
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-    border: 4px solid var(--color-white);
-    box-shadow: var(--shadow-lg);
 }
 
 .hero-info {
@@ -322,35 +292,34 @@ main {
 
 .contact-info {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-lg);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
     background-color: var(--color-white);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    transition: all var(--transition-fast);
-    font-size: 0.9rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
 }
 
 .contact-item:hover {
     border-color: var(--color-accent-primary);
-    transform: translateX(4px);
-    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .contact-icon {
-    font-family: var(--font-mono);
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--color-accent-primary);
-    font-weight: 500;
-    min-width: 24px;
 }
 
 /* ==========================================
@@ -382,7 +351,7 @@ main {
 }
 
 .section-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -407,18 +376,59 @@ main {
 }
 
 /* ==========================================
-   Profile Section - MÁS ESPACIO
+   Profile Section - Imagen a la derecha
    ========================================== */
 .section-profile {
     padding-top: var(--spacing-3xl);
     padding-bottom: var(--spacing-3xl);
 }
 
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-image-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.profile-image-frame {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 3px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.profile-image-frame::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid var(--color-accent-primary);
+    border-radius: var(--radius-lg);
+    z-index: -1;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .profile-content {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-    max-width: 900px;
 }
 
 .profile-text {
@@ -427,17 +437,27 @@ main {
     color: var(--color-text-secondary);
 }
 
+/* Responsive - Profile */
+@media (min-width: 768px) {
+    .profile-layout {
+        grid-template-columns: 1fr 320px;
+        gap: var(--spacing-2xl);
+    }
+    
+    .profile-image-wrapper {
+        max-width: 100%;
+    }
+}
+
 /* ==========================================
-   Experience & Education Cards
+   Experience Section
    ========================================== */
-.education-list,
 .experience-list {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
 }
 
-.education-card,
 .experience-card {
     background-color: var(--color-white);
     padding: var(--spacing-lg);
@@ -446,7 +466,6 @@ main {
     transition: all var(--transition-base);
 }
 
-.education-card:hover,
 .experience-card:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
@@ -470,8 +489,7 @@ main {
     margin-bottom: var(--spacing-xs);
 }
 
-.card-company,
-.card-institution {
+.card-company {
     font-size: 1rem;
     color: var(--color-accent-primary);
     font-weight: 500;
@@ -486,11 +504,6 @@ main {
     padding: 4px 12px;
     border-radius: var(--radius-sm);
     white-space: nowrap;
-}
-
-.card-description {
-    color: var(--color-text-secondary);
-    line-height: 1.7;
 }
 
 .card-list {
@@ -514,64 +527,6 @@ main {
     color: var(--color-accent-secondary);
     font-weight: 600;
 }
-
-/* ==========================================
-   Certifications Section
-   ========================================== */
-.certifications-section {
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-2xl);
-    border-top: 2px solid var(--color-border);
-}
-
-.certifications-title {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-accent-primary);
-}
-
-.certifications-grid {
-    display: grid;
-    gap: var(--spacing-md);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.cert-item {
-    background-color: var(--color-white);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-    transition: all var(--transition-fast);
-}
-
-.cert-item:hover {
-    border-color: var(--color-accent-secondary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-}
-
-.cert-name {
-    font-weight: 600;
-    color: var(--color-text-primary);
-    font-size: 0.95rem;
-}
-
-.cert-org {
-    color: var(--color-text-secondary);
-    font-size: 0.85rem;
-}
-
-.cert-date {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--color-text-tertiary);
-}
-
 
 /* ==========================================
    Projects Section - GALLERY GRID
@@ -750,6 +705,14 @@ main {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-xl);
     }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -764,6 +727,10 @@ main {
     .project-overlay-desc {
         font-size: 1rem;
     }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -772,22 +739,16 @@ main {
     }
 }
 
-#currentSlide {
-    color: var(--color-accent-primary);
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
 /* ==========================================
-   Skills Section
+   Education Section
    ========================================== */
-.skills-grid {
-    display: grid;
+.education-list {
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-2xl);
 }
 
-.skill-category {
+.education-card {
     background-color: var(--color-white);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
@@ -795,50 +756,133 @@ main {
     transition: all var(--transition-base);
 }
 
-.skill-category:hover {
-    box-shadow: var(--shadow-md);
+.education-card:hover {
+    box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
+    border-color: var(--color-accent-primary);
+}
+
+.card-institution {
+    font-size: 1rem;
+    color: var(--color-accent-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Certificaciones */
+.certifications-section {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 2px solid var(--color-border);
+}
+
+.certifications-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-accent-primary);
+}
+
+.certifications-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cert-item {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-fast);
+}
+
+.cert-item:hover {
+    border-color: var(--color-accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.cert-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+}
+
+.cert-org {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+}
+
+.cert-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+}
+
+/* ==========================================
+   Skills Section
+   ========================================== */
+.skills-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+    grid-template-columns: 1fr;
+}
+
+.skill-category {
+    margin-bottom: var(--spacing-lg);
 }
 
 .skill-category-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
     margin-bottom: var(--spacing-md);
-    color: var(--color-accent-primary);
+    letter-spacing: 0.5px;
 }
 
 .tech-tags-container {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
 }
 
 .tech-badge {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--color-text-primary);
-    background-color: var(--color-bg-secondary);
-    padding: 8px 14px;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    padding: 11px 20px;
+    border-radius: 24px;
+    border: 2px solid var(--color-border);
     transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
 }
 
 .tech-badge:hover {
+    border-color: var(--color-accent-primary);
     background-color: var(--color-accent-primary);
     color: var(--color-white);
-    border-color: var(--color-accent-primary);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(107, 142, 127, 0.25);
 }
 
-/* ==========================================
-   Soft Skills - VERSIÓN COMPACTA
-   ========================================== */
+/* Competencias Blandas */
 .soft-skills-compact {
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
     border-top: 2px solid var(--color-border);
+    margin-top: var(--spacing-xl);
 }
 
 .soft-skills-inline {
@@ -851,19 +895,22 @@ main {
     font-size: 0.95rem;
     color: var(--color-text-primary);
     background-color: var(--color-white);
-    padding: 10px 16px;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
+    padding: 11px 20px;
+    border-radius: 24px;
+    border: 2px solid var(--color-border);
     transition: all var(--transition-fast);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    font-weight: 500;
 }
 
 .soft-skill-badge:hover {
     border-color: var(--color-accent-secondary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--color-accent-secondary);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(201, 124, 93, 0.25);
 }
 
 /* ==========================================
@@ -936,69 +983,15 @@ main {
         font-size: 1rem;
     }
     
-    /* Hero Desktop */
-    .hero {
-        min-height: auto;
-        padding: var(--spacing-3xl) var(--spacing-md);
-    }
-    
-    .hero-content {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        align-items: center;
-        gap: var(--spacing-3xl);
-    }
-    
-    .hero-image-wrapper {
-        margin-bottom: 0;
-    }
-    
-    .image-frame {
-        width: 280px;
-        height: 280px;
-        margin: 0;
-    }
-    
-    .hero-info {
-        text-align: left;
-    }
-    
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.5rem;
-    }
-    
-    .contact-info {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-md);
-    }
-    
     /* Sections Desktop */
     .section-title {
         font-size: 2.5rem;
     }
     
-    /* Carousel - 2 slides visibles en tablet */
-    .carousel-slide {
-        min-width: calc(50% - var(--spacing-md) / 2);
+    .profile-text {
+        font-size: 1rem;
     }
-    
-    .carousel-container {
-        padding: 0 var(--spacing-md);
-    }
-    
-    .project-image {
-        height: 200px;
-    }
-    
-    .project-title {
-        font-size: 1.5rem;
-    }
-    
+
     /* Skills Grid Desktop */
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1014,31 +1007,12 @@ main {
    Large Desktop (≥1024px)
    ========================================== */
 @media (min-width: 1024px) {
-    .hero-title {
-        font-size: 3.5rem;
-    }
-    
     .section-title {
         font-size: 3rem;
     }
     
-    /* Carousel - 2.5 slides visibles en desktop grande */
-    .carousel-slide {
-        min-width: calc(40% - var(--spacing-md) / 2);
-    }
-    
     .skills-grid {
         grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* ==========================================
-   Extra Large Desktop (≥1400px)
-   ========================================== */
-@media (min-width: 1400px) {
-    /* Carousel - 3 slides visibles en pantallas muy grandes */
-    .carousel-slide {
-        min-width: calc(33.333% - var(--spacing-md));
     }
 }
 
@@ -1079,4 +1053,256 @@ main {
     .section {
         page-break-inside: avoid;
     }
+}
+
+/* --- Icon-only contact buttons (añadir al final de styles.css) --- */
+.contact-info.contact-icons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center; /* o flex-start si lo quieres alineado a la izquierda */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Reciclamos la clase .contact-item pero la adaptamos para icon-only */
+.contact-item.icon-only {
+  /* convertimos el bloque a un botón/ícono centrado */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;            /* tamaño del botón (ajusta a 56/72 si prefieres) */
+  height: 48px;           /* alto similar a la imagen que mostraste */
+  padding: 0;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  transition: all var(--transition-base);
+  color: var(--color-accent-primary); /* color del icono */
+  text-decoration: none;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+/* SVG dentro del botón */
+.contact-item.icon-only svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* hover/focus mantiene tu estética */
+.contact-item.icon-only:hover,
+.contact-item.icon-only:focus {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-primary);
+  box-shadow: var(--shadow-md);
+  background-color: rgba(107,142,127,0.04); /* ligero tinte del acento */
+  outline: none;
+}
+
+/* ocultamos cualquier texto visible (si por error queda) y dejamos solo el label accesible para screen-readers */
+.contact-item.icon-only > span:not(.sr-only) {
+  display: none;
+}
+
+/* clase de utilidad: texto accesible solo para screen-readers */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ------------- Patch: Mejoras overlay proyectos ------------- */
+/* Reemplazar reglas previas de project-image-container / project-img / project-overlay y relacionadas */
+
+.project-image-container {
+    position: relative;
+    width: 100%;
+    /* Ajustado a 3:2 para dar más altura y evitar recorte visual */
+    padding-bottom: 66.66%;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-bg-secondary);
+}
+
+/* Imagen absoluta, ocupa todo el contenedor */
+.project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+    will-change: transform;
+}
+
+/* Overlay absoluto que ocupa la tarjeta; contenido en columna */
+.project-overlay {
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* acciones abajo */
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0.45) 40%, rgba(10,10,10,0.82) 100%);
+    color: var(--color-white);
+    opacity: 0;
+    transform: translateY(8%);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+    z-index: 2;
+    /* si el contenido es más alto que el área, permitimos scroll interno */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: inherit; /* respeta los bordes redondeados del contenedor */
+}
+
+/* Mostrar overlay al hover, con animación suave */
+.project-item:hover .project-img {
+    transform: scale(1.05);
+}
+.project-item:hover .project-overlay,
+.project-item:focus-within .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Título dentro del overlay: tamaño controlado y multilinea */
+.project-overlay-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--color-white);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    /* permite hasta 2 líneas sin desbordar visualmente */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Descripción: legible, con límite y scroll si hace falta */
+.project-overlay-desc {
+    margin: 0;
+    color: rgba(255,255,255,0.92);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-height: 5.6rem; /* límite visual razonable */
+    overflow: auto;
+}
+
+/* Tech icons y acciones se colocan al final (abajo) y se adaptan si hay poco espacio */
+.project-tech-icons {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.project-actions {
+    display:flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 6px;
+}
+
+/* Botones dentro del overlay: tamaño compacto */
+.project-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.92);
+    color: var(--color-text-primary);
+    border: none;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.project-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Cuando el overlay tenga mucho contenido, mostrar scroll pero ocultar barras en navegadores */
+.project-overlay::-webkit-scrollbar { width: 8px; }
+.project-overlay::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 6px; }
+
+/* Ajustes responsivos: textos más pequeños en móviles y padding más generoso en desktop */
+@media (max-width: 720px) {
+    .project-image-container { padding-bottom: 75%; } /* más alto en móvil para mostrar más verticalidad */
+    .project-overlay { padding: calc(var(--spacing-sm)); }
+    .project-overlay-title { font-size: 1rem; -webkit-line-clamp: 3; }
+    .project-overlay-desc { font-size: 0.92rem; max-height: 6.5rem; }
+}
+
+@media (min-width: 1024px) {
+    .project-image-container { padding-bottom: 60%; } /* más ancho en desktop */
+    .project-overlay { padding: var(--spacing-lg); }
+    .project-overlay-title { font-size: 1.25rem; }
+    .project-overlay-desc { font-size: 1rem; }
+}
+/* ------------- fin del patch ------------- */
+
+/* ==== Patch: Contenedor global (solo CSS) ==== */
+:root {
+  /* ancho máximo del contenido (ajusta 1000/1100/1200 según prefieras) */
+  --content-max-width: 1100px;
+}
+
+/* Centrar y limitar los contenedores principales */
+.header-container,
+.section-container,
+.hero-content {
+  max-width: var(--content-max-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* Asegurar que main también se limite y quede centrado */
+main {
+  max-width: 100%;
+}
+
+/* Hacer que la galería de proyectos no use todo el ancho de la sección */
+.projects-gallery {
+  max-width: calc(var(--content-max-width) - 40px); /* le damos algo de respiración */
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* columnas un poco más estrechas */
+  gap: var(--spacing-lg);
+}
+
+/* Ajuste específico para evitar que botones/etiquetas salgan fuera del overlay */
+.project-overlay { 
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* Si quieres que el header tenga la misma anchura visual (sin cambiar la estructura) */
+#header { 
+  /* deja la barra del header full-width pero su contenido centrado por el header-container ya limitado */
+}
+
+/* pequeño ajuste responsivo para móviles */
+@media (max-width: 720px) {
+  :root { --content-max-width: 100%; }
+  .projects-gallery { max-width: 100%; grid-template-columns: repeat(1, 1fr); }
 }

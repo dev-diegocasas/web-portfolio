@@ -38,58 +38,89 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section: Foto y Datos de Contacto -->
+        <!-- Hero Section: Solo Datos de Contacto (SIN IMAGEN) -->
         <section class="hero" id="inicio">
             <div class="hero-content">
-                <div class="hero-image-wrapper">
-                    <div class="image-frame">
-                        <img src="images/profile.svg" alt="Foto profesional de Diego Alejandro Casas" class="profile-image">
-                    </div>
-                </div>
-                
                 <div class="hero-info">
                     <h2 class="hero-title">Diego Alejandro Casas Reyez</h2>
                     <p class="hero-subtitle">Junior Full-Stack Developer</p>
                     
-                    <div class="contact-info">
-                        <a href="mailto:alejandrocasas102@gmail.com" class="contact-item">
-                            <span class="contact-icon">✉</span>
-                            <span>alejandrocasas102@gmail.com</span>
-                        </a>
-                        <a href="tel:+573142503273" class="contact-item">
-                            <span class="contact-icon">☎</span>
-                            <span>+57 314 250 3273</span>
-                        </a>
-                        <a href="https://linkedin.com/in/dev-diegocasas" target="_blank" class="contact-item">
-                            <span class="contact-icon">in</span>
-                            <span>linkedin.com/in/dev-diegocasas</span>
-                        </a>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <span>Bogotá, Colombia</span>
-                        </div>
+                    <!-- Contacto: icon-only (reemplaza el div.contact-info original) -->
+                    <div class="contact-info contact-icons" aria-label="Contacto" role="navigation">
+                    <!-- Gmail -->
+                    <a href="mailto:alejandrocasas102@gmail.com"
+                        class="contact-item icon-only"
+                        aria-label="Enviar correo a alejandrocasas102@gmail.com" target="_blank" rel="noopener">
+                        <!-- SVG Gmail (lineal) -->
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 6h16v12H4z"></path>
+                        <path d="M22 6l-10 7L2 6"></path>
+                        </svg>
+                        <span class="sr-only">Email: alejandrocasas102@gmail.com</span>
+                    </a>
+
+                    <!-- GitHub: reemplaza 'tuusuario' por tu usuario real -->
+                    <a href="https://github.com/dev-diegocasas"
+                        class="contact-item icon-only"
+                        aria-label="GitHub — tuusuario" target="_blank" rel="noopener">
+                        <!-- SVG GitHub (monocromo) -->
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                        <path d="M12 .5C5.65.5.75 5.4.75 11.75c0 5.06 3.29 9.35 7.86 10.86.58.1.79-.25.79-.55
+                        0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7
+                        -1.06-.72.08-.7.08-.7 1.18.08 1.8 1.2 1.8 1.2 1.05 1.8 2.75 1.28 3.42.98
+                        .1-.76.41-1.28.74-1.57-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.3 1.2-3.1
+                        -.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.78 0
+                        c2.2-1.49 3.17-1.18 3.17-1.18.63 1.57.23 2.73.11 3.02.75.8 1.2 1.84
+                        1.2 3.1 0 4.43-2.7 5.4-5.27 5.68.42.36.8 1.08.8 2.18
+                        0 1.57-.02 2.84-.02 3.22 0 .3.2.65.8.54a11.01 11.01 0 0 0 7.86-10.86C23.25 5.4 18.35.5 12 .5z"/>
+                        </svg>
+                        <span class="sr-only">GitHub: tuusuario</span>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/dev-diegocasas"
+                        class="contact-item icon-only"
+                        aria-label="LinkedIn — dev-diegocasas" target="_blank" rel="noopener">
+                        <!-- SVG LinkedIn -->
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 
+                        8h5v16H0V8zm7.5 0h4.7v2.2h.07c.65-1.2 2.24-2.46 4.62-2.46 4.94 0 5.85 3.25 
+                        5.85 7.47V24h-5v-7.6c0-1.8-.03-4.12-2.5-4.12-2.5 0-2.88 1.95-2.88 
+                        3.98V24h-5V8z"/>
+                        </svg>
+                        <span class="sr-only">LinkedIn: dev-diegocasas</span>
+                    </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Descripción del Perfil -->
+        <!-- Descripción del Perfil CON IMAGEN -->
         <section class="section section-profile" id="perfil">
             <div class="section-container">
                 <h2 class="section-title">Sobre mí</h2>
-                <div class="profile-content">
-                    <p class="profile-text">
-                        Junior full-stack developer con experiencia en plataformas web y APIs. Lideré el desarrollo e 
-                        implementación de una plataforma web escalable y API que automatizó flujos de trabajo clave, 
-                        redujo el tiempo de comercialización y mejoró el rendimiento, SEO y accesibilidad, al tiempo que 
-                        optimicé las consultas de base de datos para respuestas más rápidas.
-                    </p>
-                    <p class="profile-text">
-                        Participé desde el desarrollo hasta la producción, priorizando código modular y usabilidad, 
-                        trabajando eficazmente en equipos ágiles. Apasionado por aplicar principios de diseño, 
-                        patrones arquitectónicos y mejores prácticas de desarrollo para crear soluciones robustas 
-                        y mantenibles.
-                    </p>
+                <div class="profile-layout">
+                    <div class="profile-content">
+                        <p class="profile-text">
+                            Junior full-stack developer con experiencia en plataformas web y APIs. Lideré el desarrollo e 
+                            implementación de una plataforma web escalable y API que automatizó flujos de trabajo clave, 
+                            redujo el tiempo de comercialización y mejoró el rendimiento, SEO y accesibilidad, al tiempo que 
+                            optimicé las consultas de base de datos para respuestas más rápidas.
+                        </p>
+                        <p class="profile-text">
+                            Participé desde el desarrollo hasta la producción, priorizando código modular y usabilidad, 
+                            trabajando eficazmente en equipos ágiles. Apasionado por aplicar principios de diseño, 
+                            patrones arquitectónicos y mejores prácticas de desarrollo para crear soluciones robustas 
+                            y mantenibles.
+                        </p>
+                    </div>
+                    
+                    <div class="profile-image-wrapper">
+                        <div class="profile-image-frame">
+                            <img src="images/img-portafolio.jpg" alt="Diego Alejandro Casas" class="profile-photo">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -131,28 +162,17 @@
                                  alt="Crypto Market API" 
                                  class="project-img">
                             <div class="project-overlay">
-                                <h3 class="project-overlay-title">Crypto Market API</h3>
-                                <p class="project-overlay-desc">API para gestión de datos del mercado de criptomonedas</p>
                                 <div class="project-tech-icons">
-                                    <span class="tech-icon" title="TypeScript">TS</span>
-                                    <span class="tech-icon" title="Node.js">Node</span>
-                                    <span class="tech-icon" title="MongoDB">Mongo</span>
+                                    <span class="tech-icon" title="TypeScript">Python</span>
+                                    <span class="tech-icon" title="Node.js">HTML</span>
                                     <span class="tech-icon" title="Vercel">Vercel</span>
                                 </div>
                                 <div class="project-actions">
-                                    <a href="#" class="project-action-btn" title="Ver código en GitHub">
+                                    <a href="https://github.com/dev-diegocasas/CrytoTimingAPI.git" class="project-action-btn" title="Ver código en GitHub">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                         </svg>
                                         <span>GitHub</span>
-                                    </a>
-                                    <a href="#" class="project-action-btn" title="Ver proyecto">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                            <polyline points="15 3 21 3 21 9"></polyline>
-                                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                                        </svg>
-                                        <span>Demo</span>
                                     </a>
                                 </div>
                             </div>
@@ -166,28 +186,18 @@
                                  alt="JavaScript Learning Platform" 
                                  class="project-img">
                             <div class="project-overlay">
-                                <h3 class="project-overlay-title">JavaScript Learning Platform</h3>
-                                <p class="project-overlay-desc">Plataforma interactiva para aprender JavaScript</p>
                                 <div class="project-tech-icons">
-                                    <span class="tech-icon" title="JavaScript">JS</span>
-                                    <span class="tech-icon" title="SQL">SQL</span>
-                                    <span class="tech-icon" title="Authentication">Auth</span>
-                                    <span class="tech-icon" title="Security">Sec</span>
+                                    <span class="tech-icon" title="JavaScript">TypeScript</span>
+                                    <span class="tech-icon" title="SQL">JavaScript</span>
+                                    <span class="tech-icon" title="Authentication">CSS</span>
+                                    <span class="tech-icon" title="Security">PLPGSQL</span>
                                 </div>
                                 <div class="project-actions">
-                                    <a href="#" class="project-action-btn" title="Ver código en GitHub">
+                                    <a href="https://github.com/Cristianmoreno25/Ludex.git" class="project-action-btn" title="Ver código en GitHub">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                         </svg>
                                         <span>GitHub</span>
-                                    </a>
-                                    <a href="#" class="project-action-btn" title="Ver proyecto">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                            <polyline points="15 3 21 3 21 9"></polyline>
-                                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                                        </svg>
-                                        <span>Demo</span>
                                     </a>
                                 </div>
                             </div>
@@ -201,62 +211,15 @@
                                  alt="Hardware Store Catalog" 
                                  class="project-img">
                             <div class="project-overlay">
-                                <h3 class="project-overlay-title">Hardware Store Catalog</h3>
-                                <p class="project-overlay-desc">E-commerce responsive para ferretería</p>
                                 <div class="project-tech-icons">
-                                    <span class="tech-icon" title="HTML5">HTML</span>
-                                    <span class="tech-icon" title="CSS3">CSS</span>
-                                    <span class="tech-icon" title="JavaScript">JS</span>
-                                    <span class="tech-icon" title="SEO">SEO</span>
+                                    <span class="tech-icon" title="HTML5">TypeScript</span>
                                 </div>
                                 <div class="project-actions">
-                                    <a href="#" class="project-action-btn" title="Ver código en GitHub">
+                                    <a href="https://github.com/Cristianmoreno25/Raices_Verdes.git" class="project-action-btn" title="Ver código en GitHub">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                         </svg>
                                         <span>GitHub</span>
-                                    </a>
-                                    <a href="#" class="project-action-btn" title="Ver proyecto">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                            <polyline points="15 3 21 3 21 9"></polyline>
-                                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                                        </svg>
-                                        <span>Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Proyecto 4 -->
-                    <article class="project-item">
-                        <div class="project-image-container">
-                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop" 
-                                 alt="Portfolio Project" 
-                                 class="project-img">
-                            <div class="project-overlay">
-                                <h3 class="project-overlay-title">Portfolio Personal</h3>
-                                <p class="project-overlay-desc">Sitio web profesional con diseño moderno</p>
-                                <div class="project-tech-icons">
-                                    <span class="tech-icon" title="React">React</span>
-                                    <span class="tech-icon" title="Next.js">Next</span>
-                                    <span class="tech-icon" title="Tailwind">TW</span>
-                                </div>
-                                <div class="project-actions">
-                                    <a href="#" class="project-action-btn" title="Ver código en GitHub">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                        </svg>
-                                        <span>GitHub</span>
-                                    </a>
-                                    <a href="#" class="project-action-btn" title="Ver proyecto">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                            <polyline points="15 3 21 3 21 9"></polyline>
-                                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                                        </svg>
-                                        <span>Demo</span>
                                     </a>
                                 </div>
                             </div>
