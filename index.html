@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV profesional de Ingeniero de Desarrollo - Portfolio y experiencia">
+    <title>Alejandro Martínez | Ingeniero de Desarrollo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1 class="logo-text">AM<span class="dot">.</span></h1>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="#perfil" class="nav-link">Perfil</a></li>
+                    <li><a href="#competencias" class="nav-link">Competencias</a></li>
+                    <li><a href="#educacion" class="nav-link">Educación</a></li>
+                    <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section: Foto y Datos de Contacto -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <div class="hero-image-wrapper">
+                    <div class="image-frame">
+                        <img src="images/profile.svg" alt="Foto profesional de Alejandro Martínez" class="profile-image">
+                    </div>
+                </div>
+                
+                <div class="hero-info">
+                    <h2 class="hero-title">Alejandro Martínez</h2>
+                    <p class="hero-subtitle">Ingeniero de Desarrollo Full Stack</p>
+                    
+                    <div class="contact-info">
+                        <a href="mailto:alejandro.martinez@email.com" class="contact-item">
+                            <span class="contact-icon">✉</span>
+                            <span>alejandro.martinez@email.com</span>
+                        </a>
+                        <a href="tel:+573001234567" class="contact-item">
+                            <span class="contact-icon">☎</span>
+                            <span>+57 300 123 4567</span>
+                        </a>
+                        <a href="https://linkedin.com/in/alejandromartinez" target="_blank" class="contact-item">
+                            <span class="contact-icon">in</span>
+                            <span>linkedin.com/in/alejandromartinez</span>
+                        </a>
+                        <a href="https://github.com/alejandromartinez" target="_blank" class="contact-item">
+                            <span class="contact-icon">gh</span>
+                            <span>github.com/alejandromartinez</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Descripción del Perfil -->
+        <section class="section section-profile" id="perfil">
+            <div class="section-container">
+                <h2 class="section-title">Sobre mí</h2>
+                <div class="profile-content">
+                    <p class="profile-text">
+                        Ingeniero de desarrollo con más de 5 años de experiencia en la creación de soluciones web y móviles escalables. 
+                        Especializado en arquitecturas modernas, metodologías ágiles y liderazgo técnico de equipos multidisciplinarios.
+                    </p>
+                    <p class="profile-text">
+                        Apasionado por la innovación tecnológica y el desarrollo de productos que generan impacto real en los usuarios. 
+                        Enfocado en escribir código limpio, mantenible y en la mejora continua de procesos de desarrollo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competencias Técnicas -->
+        <section class="section section-skills" id="competencias">
+            <div class="section-container">
+                <h2 class="section-title">Competencias Técnicas</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Frontend</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">
+                                <span class="skill-name">React / Next.js</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">HTML5 / CSS3</span>
+                                <span class="skill-level">Experto</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">Tailwind / Styled Components</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Backend</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">
+                                <span class="skill-name">Node.js / Express</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">Python / Django</span>
+                                <span class="skill-level">Intermedio</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">PostgreSQL / MongoDB</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">REST APIs / GraphQL</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">DevOps & Tools</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">
+                                <span class="skill-name">Git / GitHub</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">Docker / Kubernetes</span>
+                                <span class="skill-level">Intermedio</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">AWS / Azure</span>
+                                <span class="skill-level">Intermedio</span>
+                            </li>
+                            <li class="skill-item">
+                                <span class="skill-name">CI/CD Pipelines</span>
+                                <span class="skill-level">Avanzado</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Competencias Blandas -->
+                <div class="soft-skills">
+                    <h3 class="skill-category-title">Competencias Blandas</h3>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-item">
+                            <span class="soft-skill-icon">💡</span>
+                            <span class="soft-skill-name">Pensamiento Crítico</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <span class="soft-skill-icon">🤝</span>
+                            <span class="soft-skill-name">Trabajo en Equipo</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <span class="soft-skill-icon">🎯</span>
+                            <span class="soft-skill-name">Resolución de Problemas</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <span class="soft-skill-icon">📢</span>
+                            <span class="soft-skill-name">Comunicación Efectiva</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <span class="soft-skill-icon">⚡</span>
+                            <span class="soft-skill-name">Adaptabilidad</span>
+                        </div>
+                        <div class="soft-skill-item">
+                            <span class="soft-skill-icon">👥</span>
+                            <span class="soft-skill-name">Liderazgo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educación -->
+        <section class="section section-education" id="educacion">
+            <div class="section-container">
+                <h2 class="section-title">Educación</h2>
+                
+                <div class="education-list">
+                    <article class="education-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Ingeniería de Sistemas</h3>
+                            <span class="card-date">2015 - 2020</span>
+                        </div>
+                        <p class="card-institution">Universidad Nacional de Colombia</p>
+                        <p class="card-description">
+                            Enfoque en desarrollo de software, arquitectura de sistemas y gestión de proyectos tecnológicos.
+                            Proyecto de grado: Sistema de gestión académica basado en microservicios.
+                        </p>
+                    </article>
+
+                    <article class="education-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Certificación AWS Solutions Architect</h3>
+                            <span class="card-date">2022</span>
+                        </div>
+                        <p class="card-institution">Amazon Web Services</p>
+                        <p class="card-description">
+                            Certificación profesional en diseño y despliegue de aplicaciones escalables en AWS.
+                        </p>
+                    </article>
+
+                    <article class="education-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Full Stack Web Development</h3>
+                            <span class="card-date">2021</span>
+                        </div>
+                        <p class="card-institution">Platzi</p>
+                        <p class="card-description">
+                            Programa intensivo de desarrollo web moderno con React, Node.js y metodologías ágiles.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiencia Laboral -->
+        <section class="section section-experience" id="experiencia">
+            <div class="section-container">
+                <h2 class="section-title">Experiencia Laboral</h2>
+                
+                <div class="experience-list">
+                    <article class="experience-card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Senior Full Stack Developer</h3>
+                                <p class="card-company">TechCorp Solutions</p>
+                            </div>
+                            <span class="card-date">2022 - Presente</span>
+                        </div>
+                        <ul class="card-list">
+                            <li>Liderazgo técnico de equipo de 5 desarrolladores en proyecto de plataforma e-commerce</li>
+                            <li>Implementación de arquitectura de microservicios que redujo tiempos de respuesta en 40%</li>
+                            <li>Desarrollo de sistema de gestión de inventario en tiempo real con React y Node.js</li>
+                            <li>Mentorización de desarrolladores junior y establecimiento de mejores prácticas de código</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Full Stack Developer</h3>
+                                <p class="card-company">Innovatech S.A.S.</p>
+                            </div>
+                            <span class="card-date">2020 - 2022</span>
+                        </div>
+                        <ul class="card-list">
+                            <li>Desarrollo de aplicaciones web progresivas (PWA) para clientes del sector financiero</li>
+                            <li>Integración de APIs de terceros y desarrollo de servicios RESTful</li>
+                            <li>Optimización de rendimiento que mejoró Core Web Vitals en 60%</li>
+                            <li>Implementación de pipelines CI/CD con GitHub Actions y Docker</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card">
+                        <div class="card-header">
+                            <div>
+                                <h3 class="card-title">Frontend Developer</h3>
+                                <p class="card-company">Digital Agency Co.</p>
+                            </div>
+                            <span class="card-date">2019 - 2020</span>
+                        </div>
+                        <ul class="card-list">
+                            <li>Desarrollo de sitios web responsive y landing pages para diversos clientes</li>
+                            <li>Implementación de animaciones y microinteracciones con JavaScript vanilla</li>
+                            <li>Colaboración con equipos de diseño para traducir mockups en código funcional</li>
+                            <li>Mantenimiento y actualización de sitios existentes</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos Destacados -->
+        <section class="section section-projects" id="proyectos">
+            <div class="section-container">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-tag">Web App</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">EduConnect</h3>
+                            <p class="project-description">
+                                Plataforma de gestión educativa que conecta estudiantes, profesores y padres. 
+                                Incluye sistema de mensajería en tiempo real, gestión de calificaciones y calendario académico.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Socket.io</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Ver proyecto →</a>
+                                <a href="#" class="project-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-tag">E-commerce</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">ShopFlow</h3>
+                            <p class="project-description">
+                                Sistema completo de comercio electrónico con panel de administración, 
+                                pasarela de pagos integrada y gestión de inventario en tiempo real.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Stripe</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Ver proyecto →</a>
+                                <a href="#" class="project-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-tag">Mobile App</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">FitTracker Pro</h3>
+                            <p class="project-description">
+                                Aplicación móvil para seguimiento de ejercicios y nutrición. 
+                                Incluye planes personalizados, estadísticas detalladas y sistema de logros.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Redux</span>
+                                <span class="tech-tag">Chart.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Ver proyecto →</a>
+                                <a href="#" class="project-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-tag">Dashboard</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Analytics Hub</h3>
+                            <p class="project-description">
+                                Dashboard interactivo para visualización de datos empresariales. 
+                                Gráficos personalizables, exportación de reportes y alertas automatizadas.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Ver proyecto →</a>
+                                <a href="#" class="project-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">© 2025 Alejandro Martínez. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacidad</a>
+                <span class="footer-separator">|</span>
+                <a href="#" class="footer-link">Términos</a>
+                <span class="footer-separator">|</span>
+                <a href="#inicio" class="footer-link">Volver arriba</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+</html>
