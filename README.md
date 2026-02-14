@@ -29,15 +29,16 @@ Diseño minimalista, responsive y optimizado para rendimiento.
 
 ---
 
-## 📁 Estructura
+## 📁 Estructura del Proyecto
 
+```text
 /
 ├── index.html
 ├── styles.css
 ├── menu.js
 ├── images/
+│   └── profile.svg
 └── README.md
----
 
 ## 🚀 Deploy
 
