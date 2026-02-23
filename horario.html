@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Horario académico y organigrama diario - Diego Alejandro Casas">
+    <title>Horario Académico | DACR.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/horario.css">
+</head>
+<body>
+    <!-- Header - Mismo del portafolio -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-text-link">
+                    <h1 class="logo-text">DACR<span class="dot">.</span></h1>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="index.html#perfil" class="nav-link">Perfil</a></li>
+                    <li><a href="index.html#experiencia" class="nav-link">Experiencia</a></li>
+                    <li><a href="index.html#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="index.html#educacion" class="nav-link">Educación</a></li>
+                    <li><a href="horario.html" class="nav-link active">Horario</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="academic-main">
+
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="page-hero-content">
+                <p class="page-hero-eyebrow">Semestre 2025-I</p>
+                <h1 class="page-hero-title">Módulo Académico</h1>
+                <p class="page-hero-subtitle">Horario semanal & organigrama diario — Ingeniería de Software</p>
+                <!-- Tab Switcher -->
+                <div class="view-switcher" role="tablist" aria-label="Vista del módulo">
+                    <button class="view-tab active" id="tab-horario" role="tab" aria-selected="true" aria-controls="panel-horario" data-target="panel-horario">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Horario Semanal
+                    </button>
+                    <button class="view-tab" id="tab-organigrama" role="tab" aria-selected="false" aria-controls="panel-organigrama" data-target="panel-organigrama">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Organigrama Diario
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             PANEL 1: HORARIO SEMANAL
+             ========================================= -->
+        <section id="panel-horario" class="panel active" role="tabpanel" aria-labelledby="tab-horario">
+            <div class="horario-container">
+
+                <!-- Leyenda de materias -->
+                <div class="legend-bar">
+                    <p class="legend-label">Materias:</p>
+                    <div class="legend-items">
+                        <span class="legend-chip chip-so">Sist. Operativos</span>
+                        <span class="legend-chip chip-web">Ing. Web II</span>
+                        <span class="legend-chip chip-emc">Estánd. Métricas</span>
+                        <span class="legend-chip chip-ol">Optim. Lineal</span>
+                        <span class="legend-chip chip-in">Intel. Negocios</span>
+                        <span class="legend-chip chip-leg">Leg. Informática</span>
+                        <span class="legend-chip chip-eng">Inglés</span>
+                        <span class="legend-chip chip-ea">Ed. Ambiental</span>
+                    </div>
+                </div>
+
+                <!-- Grid del horario — Desktop -->
+                <div class="schedule-grid" id="scheduleGrid" aria-label="Horario semanal de clases">
+                    <!-- Headers días -->
+                    <div class="grid-corner"></div>
+                    <div class="day-header">
+                        <span class="day-abbr">LUN</span>
+                        <span class="day-full">Lunes</span>
+                    </div>
+                    <div class="day-header">
+                        <span class="day-abbr">MAR</span>
+                        <span class="day-full">Martes</span>
+                    </div>
+                    <div class="day-header">
+                        <span class="day-abbr">MIÉ</span>
+                        <span class="day-full">Miércoles</span>
+                    </div>
+                    <div class="day-header">
+                        <span class="day-abbr">JUE</span>
+                        <span class="day-full">Jueves</span>
+                    </div>
+                    <div class="day-header">
+                        <span class="day-abbr">VIE</span>
+                        <span class="day-full">Viernes</span>
+                    </div>
+                    <div class="day-header">
+                        <span class="day-abbr">SÁB</span>
+                        <span class="day-full">Sábado</span>
+                    </div>
+
+                    <!-- Fila 16:00-17:00 -->
+                    <div class="time-slot">04–05 pm</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+
+                    <!-- Fila 17:00-18:00 -->
+                    <div class="time-slot">05–06 pm</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell class-cell chip-eng" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Inglés Intermedio Alto"
+                        data-codigo="ING-201"
+                        data-docente="Prof. María González"
+                        data-salon="CANVAS"
+                        data-modalidad="Virtual"
+                        data-horario="Martes 05:00 – 06:00 pm"
+                        data-creditos="2"
+                        data-chip="chip-eng">
+                        <strong>Inglés Intermedio Alto</strong>
+                        <span class="cell-meta">CANVAS · Virtual</span>
+                    </div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+
+                    <!-- Fila 18:00-19:00 -->
+                    <div class="time-slot">06–07 pm</div>
+                    <div class="cell class-cell chip-so" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Sistemas Operativos"
+                        data-codigo="SO-401"
+                        data-docente="Prof. Carlos Ramírez"
+                        data-salon="A413"
+                        data-modalidad="Presencial"
+                        data-horario="Lunes 06:00 – 08:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-so">
+                        <strong>Sistemas Operativos</strong>
+                        <span class="cell-meta">A413 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-ea" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Educación Ambiental"
+                        data-codigo="EA-101"
+                        data-docente="Prof. Laura Medina"
+                        data-salon="CANVAS"
+                        data-modalidad="Virtual"
+                        data-horario="Martes 06:00 – 07:00 pm"
+                        data-creditos="1"
+                        data-chip="chip-ea">
+                        <strong>Educación Ambiental</strong>
+                        <span class="cell-meta">CANVAS · Virtual</span>
+                    </div>
+                    <div class="cell class-cell chip-emc" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Estánd. y Métricas de Calidad del Software"
+                        data-codigo="EMC-401"
+                        data-docente="Prof. Andrés Torres"
+                        data-salon="A401"
+                        data-modalidad="Presencial"
+                        data-horario="Miércoles 06:00 – 09:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-emc">
+                        <strong>Estánd. y Métricas CSS</strong>
+                        <span class="cell-meta">A401 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-ol" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Optimización Lineal"
+                        data-codigo="OL-301"
+                        data-docente="Prof. Jorge Herrera"
+                        data-salon="A405"
+                        data-modalidad="Presencial"
+                        data-horario="Jueves 06:00 – 09:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-ol">
+                        <strong>Optimización Lineal</strong>
+                        <span class="cell-meta">A405 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-in" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Inteligencia de Negocios"
+                        data-codigo="IN-402"
+                        data-docente="Prof. Sandra Ríos"
+                        data-salon="A411"
+                        data-modalidad="Presencial"
+                        data-horario="Viernes 06:00 – 08:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-in">
+                        <strong>Inteligencia de Negocios</strong>
+                        <span class="cell-meta">A411 · Presencial</span>
+                    </div>
+                    <div class="cell empty">—</div>
+
+                    <!-- Fila 19:00-20:00 -->
+                    <div class="time-slot">07–08 pm</div>
+                    <div class="cell class-cell chip-so" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Sistemas Operativos"
+                        data-codigo="SO-401"
+                        data-docente="Prof. Carlos Ramírez"
+                        data-salon="A413"
+                        data-modalidad="Presencial"
+                        data-horario="Lunes 06:00 – 08:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-so">
+                        <strong>Sistemas Operativos</strong>
+                        <span class="cell-meta">A413 · Presencial</span>
+                    </div>
+                    <div class="cell empty">—</div>
+                    <div class="cell class-cell chip-emc" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Estánd. y Métricas de Calidad del Software"
+                        data-codigo="EMC-401"
+                        data-docente="Prof. Andrés Torres"
+                        data-salon="A401"
+                        data-modalidad="Presencial"
+                        data-horario="Miércoles 06:00 – 09:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-emc">
+                        <strong>Estánd. y Métricas CSS</strong>
+                        <span class="cell-meta">A401 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-ol" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Optimización Lineal"
+                        data-codigo="OL-301"
+                        data-docente="Prof. Jorge Herrera"
+                        data-salon="A405"
+                        data-modalidad="Presencial"
+                        data-horario="Jueves 06:00 – 09:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-ol">
+                        <strong>Optimización Lineal</strong>
+                        <span class="cell-meta">A405 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-in" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Inteligencia de Negocios"
+                        data-codigo="IN-402"
+                        data-docente="Prof. Sandra Ríos"
+                        data-salon="A411"
+                        data-modalidad="Presencial"
+                        data-horario="Viernes 06:00 – 08:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-in">
+                        <strong>Inteligencia de Negocios</strong>
+                        <span class="cell-meta">A411 · Presencial</span>
+                    </div>
+                    <div class="cell empty">—</div>
+
+                    <!-- Fila 20:00-21:00 -->
+                    <div class="time-slot">08–09 pm</div>
+                    <div class="cell class-cell chip-web" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Ingeniería Web II"
+                        data-codigo="WEB-402"
+                        data-docente="Prof. Felipe Mora"
+                        data-salon="A406"
+                        data-modalidad="Presencial"
+                        data-horario="Lunes 08:00 – 10:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-web">
+                        <strong>Ingeniería Web II</strong>
+                        <span class="cell-meta">A406 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-leg" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Legislación Informática"
+                        data-codigo="LEG-205"
+                        data-docente="Prof. Diana Vargas"
+                        data-salon="A205"
+                        data-modalidad="Presencial"
+                        data-horario="Martes 08:00 – 10:00 pm"
+                        data-creditos="2"
+                        data-chip="chip-leg">
+                        <strong>Leg. Informática</strong>
+                        <span class="cell-meta">A205 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-emc" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Estánd. y Métricas de Calidad del Software"
+                        data-codigo="EMC-401"
+                        data-docente="Prof. Andrés Torres"
+                        data-salon="A401"
+                        data-modalidad="Presencial"
+                        data-horario="Miércoles 06:00 – 09:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-emc">
+                        <strong>Estánd. y Métricas CSS</strong>
+                        <span class="cell-meta">A401 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-ol" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Optimización Lineal"
+                        data-codigo="OL-301"
+                        data-docente="Prof. Jorge Herrera"
+                        data-salon="A405"
+                        data-modalidad="Presencial"
+                        data-horario="Jueves 06:00 – 09:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-ol">
+                        <strong>Optimización Lineal</strong>
+                        <span class="cell-meta">A405 · Presencial</span>
+                    </div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+
+                    <!-- Fila 21:00-22:00 -->
+                    <div class="time-slot">09–10 pm</div>
+                    <div class="cell class-cell chip-web" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Ingeniería Web II"
+                        data-codigo="WEB-402"
+                        data-docente="Prof. Felipe Mora"
+                        data-salon="A406"
+                        data-modalidad="Presencial"
+                        data-horario="Lunes 08:00 – 10:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-web">
+                        <strong>Ingeniería Web II</strong>
+                        <span class="cell-meta">A406 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-leg" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Legislación Informática"
+                        data-codigo="LEG-205"
+                        data-docente="Prof. Diana Vargas"
+                        data-salon="A205"
+                        data-modalidad="Presencial"
+                        data-horario="Martes 08:00 – 10:00 pm"
+                        data-creditos="2"
+                        data-chip="chip-leg">
+                        <strong>Leg. Informática</strong>
+                        <span class="cell-meta">A205 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-in" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Inteligencia de Negocios"
+                        data-codigo="IN-402"
+                        data-docente="Prof. Sandra Ríos"
+                        data-salon="A411"
+                        data-modalidad="Presencial"
+                        data-horario="Viernes 06:00 – 08:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-in">
+                        <strong>Inteligencia de Negocios</strong>
+                        <span class="cell-meta">A411 · Presencial</span>
+                    </div>
+                    <div class="cell class-cell chip-so" tabindex="0" role="button" aria-haspopup="dialog"
+                        data-materia="Sistemas Operativos"
+                        data-codigo="SO-401"
+                        data-docente="Prof. Carlos Ramírez"
+                        data-salon="A412"
+                        data-modalidad="Presencial"
+                        data-horario="Jueves 09:00 – 10:00 pm"
+                        data-creditos="3"
+                        data-chip="chip-so">
+                        <strong>Sistemas Operativos</strong>
+                        <span class="cell-meta">A412 · Presencial</span>
+                    </div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+
+                    <!-- Fila 22:00-23:00 -->
+                    <div class="time-slot">10–11 pm</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                    <div class="cell empty">—</div>
+                </div>
+
+                <!-- Mobile: Cards por día -->
+                <div class="mobile-schedule" aria-label="Horario por día (vista móvil)">
+                    <!-- Day selector -->
+                    <div class="day-selector">
+                        <button class="day-btn active" data-day="lunes">LUN</button>
+                        <button class="day-btn" data-day="martes">MAR</button>
+                        <button class="day-btn" data-day="miercoles">MIÉ</button>
+                        <button class="day-btn" data-day="jueves">JUE</button>
+                        <button class="day-btn" data-day="viernes">VIE</button>
+                        <button class="day-btn" data-day="sabado">SÁB</button>
+                    </div>
+
+                    <!-- Lunes -->
+                    <div class="day-panel active" id="day-lunes">
+                        <h3 class="day-panel-title">Lunes</h3>
+                        <div class="day-classes">
+                            <div class="day-class-item chip-so" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Sistemas Operativos" data-codigo="SO-401" data-docente="Prof. Carlos Ramírez"
+                                data-salon="A413" data-modalidad="Presencial" data-horario="Lunes 06:00 – 08:00 pm" data-creditos="3" data-chip="chip-so">
+                                <span class="dci-time">06–07 pm</span>
+                                <div class="dci-info"><strong>Sistemas Operativos</strong><span>A413 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-so" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Sistemas Operativos" data-codigo="SO-401" data-docente="Prof. Carlos Ramírez"
+                                data-salon="A413" data-modalidad="Presencial" data-horario="Lunes 06:00 – 08:00 pm" data-creditos="3" data-chip="chip-so">
+                                <span class="dci-time">07–08 pm</span>
+                                <div class="dci-info"><strong>Sistemas Operativos</strong><span>A413 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-web" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Ingeniería Web II" data-codigo="WEB-402" data-docente="Prof. Felipe Mora"
+                                data-salon="A406" data-modalidad="Presencial" data-horario="Lunes 08:00 – 10:00 pm" data-creditos="3" data-chip="chip-web">
+                                <span class="dci-time">08–09 pm</span>
+                                <div class="dci-info"><strong>Ingeniería Web II</strong><span>A406 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-web" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Ingeniería Web II" data-codigo="WEB-402" data-docente="Prof. Felipe Mora"
+                                data-salon="A406" data-modalidad="Presencial" data-horario="Lunes 08:00 – 10:00 pm" data-creditos="3" data-chip="chip-web">
+                                <span class="dci-time">09–10 pm</span>
+                                <div class="dci-info"><strong>Ingeniería Web II</strong><span>A406 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Martes -->
+                    <div class="day-panel" id="day-martes">
+                        <h3 class="day-panel-title">Martes</h3>
+                        <div class="day-classes">
+                            <div class="day-class-item chip-eng" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Inglés Intermedio Alto" data-codigo="ING-201" data-docente="Prof. María González"
+                                data-salon="CANVAS" data-modalidad="Virtual" data-horario="Martes 05:00 – 06:00 pm" data-creditos="2" data-chip="chip-eng">
+                                <span class="dci-time">05–06 pm</span>
+                                <div class="dci-info"><strong>Inglés Intermedio Alto</strong><span>CANVAS · Virtual</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-ea" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Educación Ambiental" data-codigo="EA-101" data-docente="Prof. Laura Medina"
+                                data-salon="CANVAS" data-modalidad="Virtual" data-horario="Martes 06:00 – 07:00 pm" data-creditos="1" data-chip="chip-ea">
+                                <span class="dci-time">06–07 pm</span>
+                                <div class="dci-info"><strong>Educación Ambiental</strong><span>CANVAS · Virtual</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-leg" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Legislación Informática" data-codigo="LEG-205" data-docente="Prof. Diana Vargas"
+                                data-salon="A205" data-modalidad="Presencial" data-horario="Martes 08:00 – 10:00 pm" data-creditos="2" data-chip="chip-leg">
+                                <span class="dci-time">08–09 pm</span>
+                                <div class="dci-info"><strong>Leg. Informática</strong><span>A205 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-leg" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Legislación Informática" data-codigo="LEG-205" data-docente="Prof. Diana Vargas"
+                                data-salon="A205" data-modalidad="Presencial" data-horario="Martes 08:00 – 10:00 pm" data-creditos="2" data-chip="chip-leg">
+                                <span class="dci-time">09–10 pm</span>
+                                <div class="dci-info"><strong>Leg. Informática</strong><span>A205 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Miercoles -->
+                    <div class="day-panel" id="day-miercoles">
+                        <h3 class="day-panel-title">Miércoles</h3>
+                        <div class="day-classes">
+                            <div class="day-class-item chip-emc" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Estánd. y Métricas de Calidad del Software" data-codigo="EMC-401" data-docente="Prof. Andrés Torres"
+                                data-salon="A401" data-modalidad="Presencial" data-horario="Miércoles 06:00 – 09:00 pm" data-creditos="3" data-chip="chip-emc">
+                                <span class="dci-time">06–07 pm</span>
+                                <div class="dci-info"><strong>Estánd. y Métricas CSS</strong><span>A401 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-emc" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Estánd. y Métricas de Calidad del Software" data-codigo="EMC-401" data-docente="Prof. Andrés Torres"
+                                data-salon="A401" data-modalidad="Presencial" data-horario="Miércoles 06:00 – 09:00 pm" data-creditos="3" data-chip="chip-emc">
+                                <span class="dci-time">07–08 pm</span>
+                                <div class="dci-info"><strong>Estánd. y Métricas CSS</strong><span>A401 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-emc" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Estánd. y Métricas de Calidad del Software" data-codigo="EMC-401" data-docente="Prof. Andrés Torres"
+                                data-salon="A401" data-modalidad="Presencial" data-horario="Miércoles 06:00 – 09:00 pm" data-creditos="3" data-chip="chip-emc">
+                                <span class="dci-time">08–09 pm</span>
+                                <div class="dci-info"><strong>Estánd. y Métricas CSS</strong><span>A401 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-in" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Inteligencia de Negocios" data-codigo="IN-402" data-docente="Prof. Sandra Ríos"
+                                data-salon="A411" data-modalidad="Presencial" data-horario="Viernes 06:00 – 08:00 pm" data-creditos="3" data-chip="chip-in">
+                                <span class="dci-time">09–10 pm</span>
+                                <div class="dci-info"><strong>Inteligencia de Negocios</strong><span>A411 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jueves -->
+                    <div class="day-panel" id="day-jueves">
+                        <h3 class="day-panel-title">Jueves</h3>
+                        <div class="day-classes">
+                            <div class="day-class-item chip-ol" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Optimización Lineal" data-codigo="OL-301" data-docente="Prof. Jorge Herrera"
+                                data-salon="A405" data-modalidad="Presencial" data-horario="Jueves 06:00 – 09:00 pm" data-creditos="3" data-chip="chip-ol">
+                                <span class="dci-time">06–07 pm</span>
+                                <div class="dci-info"><strong>Optimización Lineal</strong><span>A405 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-ol" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Optimización Lineal" data-codigo="OL-301" data-docente="Prof. Jorge Herrera"
+                                data-salon="A405" data-modalidad="Presencial" data-horario="Jueves 06:00 – 09:00 pm" data-creditos="3" data-chip="chip-ol">
+                                <span class="dci-time">07–08 pm</span>
+                                <div class="dci-info"><strong>Optimización Lineal</strong><span>A405 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-ol" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Optimización Lineal" data-codigo="OL-301" data-docente="Prof. Jorge Herrera"
+                                data-salon="A405" data-modalidad="Presencial" data-horario="Jueves 06:00 – 09:00 pm" data-creditos="3" data-chip="chip-ol">
+                                <span class="dci-time">08–09 pm</span>
+                                <div class="dci-info"><strong>Optimización Lineal</strong><span>A405 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-so" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Sistemas Operativos" data-codigo="SO-401" data-docente="Prof. Carlos Ramírez"
+                                data-salon="A412" data-modalidad="Presencial" data-horario="Jueves 09:00 – 10:00 pm" data-creditos="3" data-chip="chip-so">
+                                <span class="dci-time">09–10 pm</span>
+                                <div class="dci-info"><strong>Sistemas Operativos</strong><span>A412 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Viernes -->
+                    <div class="day-panel" id="day-viernes">
+                        <h3 class="day-panel-title">Viernes</h3>
+                        <div class="day-classes">
+                            <div class="day-class-item chip-in" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Inteligencia de Negocios" data-codigo="IN-402" data-docente="Prof. Sandra Ríos"
+                                data-salon="A411" data-modalidad="Presencial" data-horario="Viernes 06:00 – 08:00 pm" data-creditos="3" data-chip="chip-in">
+                                <span class="dci-time">06–07 pm</span>
+                                <div class="dci-info"><strong>Inteligencia de Negocios</strong><span>A411 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                            <div class="day-class-item chip-in" tabindex="0" role="button" aria-haspopup="dialog"
+                                data-materia="Inteligencia de Negocios" data-codigo="IN-402" data-docente="Prof. Sandra Ríos"
+                                data-salon="A411" data-modalidad="Presencial" data-horario="Viernes 06:00 – 08:00 pm" data-creditos="3" data-chip="chip-in">
+                                <span class="dci-time">07–08 pm</span>
+                                <div class="dci-info"><strong>Inteligencia de Negocios</strong><span>A411 · Presencial</span></div>
+                                <span class="dci-arrow">›</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sábado -->
+                    <div class="day-panel" id="day-sabado">
+                        <h3 class="day-panel-title">Sábado</h3>
+                        <div class="day-empty-notice">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M12 8V12"/><path d="M12 16H12.01"/></svg>
+                            Sin clases programadas
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================
+             PANEL 2: ORGANIGRAMA DIARIO
+             ========================================= -->
+        <section id="panel-organigrama" class="panel" role="tabpanel" aria-labelledby="tab-organigrama">
+            <div class="organigrama-container">
+
+                <!-- Selector de día -->
+                <div class="org-day-selector">
+                    <button class="org-day-btn active" data-orgday="lunes">Lunes</button>
+                    <button class="org-day-btn" data-orgday="martes">Martes</button>
+                    <button class="org-day-btn" data-orgday="miercoles">Miércoles</button>
+                    <button class="org-day-btn" data-orgday="jueves">Jueves</button>
+                    <button class="org-day-btn" data-orgday="viernes">Viernes</button>
+                    <button class="org-day-btn" data-orgday="sabado">Sábado</button>
+                </div>
+
+                <!-- Leyenda de categorías -->
+                <div class="org-legend">
+                    <span class="org-legend-chip cat-academica">Académica</span>
+                    <span class="org-legend-chip cat-investigacion">Investigación</span>
+                    <span class="org-legend-chip cat-personal">Dev. Personal</span>
+                    <span class="org-legend-chip cat-administrativa">Administrativa</span>
+                    <span class="org-legend-chip cat-descanso">Descanso</span>
+                </div>
+
+                <!-- Timelines por día -->
+
+                <!-- LUNES -->
+                <div class="timeline-panel active" id="org-lunes">
+                    <div class="timeline-header">
+                        <h2 class="timeline-title">Lunes — Jornada completa</h2>
+                        <span class="timeline-badge">6 actividades</span>
+                    </div>
+                    <div class="timeline">
+                        <div class="tl-item cat-personal" style="--tl-delay:0">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">06:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header">
+                                    <span class="tl-tag">Desarrollo Personal</span>
+                                    <span class="tl-duration">45 min</span>
+                                </div>
+                                <h4 class="tl-card-title">Rutina matutina & ejercicio</h4>
+                                <p class="tl-card-desc">Activación física y preparación mental para el día.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-investigacion" style="--tl-delay:1">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">08:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header">
+                                    <span class="tl-tag">Investigación</span>
+                                    <span class="tl-duration">2 h</span>
+                                </div>
+                                <h4 class="tl-card-title">Estudio autónomo — Ing. Web II</h4>
+                                <p class="tl-card-desc">Revisión de frameworks, lectura de documentación y práctica de código.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica" style="--tl-delay:2">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">10:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header">
+                                    <span class="tl-tag">Académica</span>
+                                    <span class="tl-duration">2 h</span>
+                                </div>
+                                <h4 class="tl-card-title">Laboratorio personal — Proyectos</h4>
+                                <p class="tl-card-desc">Desarrollo de proyectos personales y ejercicios de práctica.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-descanso" style="--tl-delay:3">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">04:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header">
+                                    <span class="tl-tag">Descanso</span>
+                                    <span class="tl-duration">2 h</span>
+                                </div>
+                                <h4 class="tl-card-title">Tiempo libre & recarga</h4>
+                                <p class="tl-card-desc">Pausa activa antes de la jornada nocturna.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:4">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">06:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header">
+                                    <span class="tl-tag">Académica</span>
+                                    <span class="tl-duration">2 h</span>
+                                </div>
+                                <h4 class="tl-card-title">📍 Clase — Sistemas Operativos <span class="aula-badge">A413</span></h4>
+                                <p class="tl-card-desc">Procesos, sincronización y manejo de recursos del sistema.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:5">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">08:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header">
+                                    <span class="tl-tag">Académica</span>
+                                    <span class="tl-duration">2 h</span>
+                                </div>
+                                <h4 class="tl-card-title">📍 Clase — Ingeniería Web II <span class="aula-badge">A406</span></h4>
+                                <p class="tl-card-desc">Desarrollo full-stack, APIs REST y arquitectura de aplicaciones web.</p>
+                            </div>
+                        </div>
+                        <div class="tl-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+                            Fin de jornada — 10:00 pm
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MARTES -->
+                <div class="timeline-panel" id="org-martes">
+                    <div class="timeline-header">
+                        <h2 class="timeline-title">Martes — Jornada mixta</h2>
+                        <span class="timeline-badge">6 actividades</span>
+                    </div>
+                    <div class="timeline">
+                        <div class="tl-item cat-personal" style="--tl-delay:0">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">06:30 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Desarrollo Personal</span><span class="tl-duration">45 min</span></div>
+                                <h4 class="tl-card-title">Lectura y planificación semanal</h4>
+                                <p class="tl-card-desc">Revisión de tareas y prioridades del día.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-investigacion" style="--tl-delay:1">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">09:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Investigación</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Investigación — Optimización Lineal</h4>
+                                <p class="tl-card-desc">Revisión de teoría y resolución de ejercicios prácticos.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-administrativa" style="--tl-delay:2">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">02:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Administrativa</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">Gestión académica — Trámites CANVAS</h4>
+                                <p class="tl-card-desc">Entrega de tareas, foros y actividades virtuales pendientes.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:3">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">05:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Inglés Intermedio Alto <span class="aula-badge virtual">CANVAS</span></h4>
+                                <p class="tl-card-desc">Sesión virtual de inglés técnico para ingeniería.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:4">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">06:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Ed. Ambiental <span class="aula-badge virtual">CANVAS</span></h4>
+                                <p class="tl-card-desc">Sesión virtual sobre sostenibilidad y tecnología verde.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:5">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">08:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Legislación Informática <span class="aula-badge">A205</span></h4>
+                                <p class="tl-card-desc">Marco legal de la información, delitos informáticos y protección de datos.</p>
+                            </div>
+                        </div>
+                        <div class="tl-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+                            Fin de jornada — 10:00 pm
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIERCOLES -->
+                <div class="timeline-panel" id="org-miercoles">
+                    <div class="timeline-header">
+                        <h2 class="timeline-title">Miércoles — Carga alta</h2>
+                        <span class="timeline-badge">5 actividades</span>
+                    </div>
+                    <div class="timeline">
+                        <div class="tl-item cat-investigacion" style="--tl-delay:0">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">08:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Investigación</span><span class="tl-duration">3 h</span></div>
+                                <h4 class="tl-card-title">Investigación — Estánd. y Métricas CSS</h4>
+                                <p class="tl-card-desc">Preparación de material y resolución anticipada de ejercicios.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica" style="--tl-delay:1">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">11:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Grupo de estudio — Inteligencia de Negocios</h4>
+                                <p class="tl-card-desc">Sesión colaborativa con compañeros para resolver casos prácticos.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-descanso" style="--tl-delay:2">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">04:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Descanso</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Pausa activa</h4>
+                                <p class="tl-card-desc">Descanso antes de la jornada de clases más intensa de la semana.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:3">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">06:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">3 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Estánd. y Métricas CSS <span class="aula-badge">A401</span></h4>
+                                <p class="tl-card-desc">Sesión presencial de 3 horas: estándares de calidad, métricas y auditoría de software.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:4">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">09:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Inteligencia de Negocios <span class="aula-badge">A411</span></h4>
+                                <p class="tl-card-desc">Análisis de datos, BI y herramientas de visualización empresarial.</p>
+                            </div>
+                        </div>
+                        <div class="tl-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+                            Fin de jornada — 10:00 pm
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JUEVES -->
+                <div class="timeline-panel" id="org-jueves">
+                    <div class="timeline-header">
+                        <h2 class="timeline-title">Jueves — Matemáticas & Sistemas</h2>
+                        <span class="timeline-badge">5 actividades</span>
+                    </div>
+                    <div class="timeline">
+                        <div class="tl-item cat-investigacion" style="--tl-delay:0">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">09:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Investigación</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Resolución de problemas — Optimización</h4>
+                                <p class="tl-card-desc">Práctica de programación lineal, simplex y dualidad.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica" style="--tl-delay:1">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">11:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">Tutoría — Sistemas Operativos</h4>
+                                <p class="tl-card-desc">Revisión de temas de kernel y gestión de procesos con el docente.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-personal" style="--tl-delay:2">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">02:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Desarrollo Personal</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Tiempo personal & hobbies</h4>
+                                <p class="tl-card-desc">Desconexión tecnológica, música o actividad recreativa.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:3">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">06:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">3 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Optimización Lineal <span class="aula-badge">A405</span></h4>
+                                <p class="tl-card-desc">Modelado matemático, algoritmos de optimización y aplicaciones industriales.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:4">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">09:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Sistemas Operativos <span class="aula-badge">A412</span></h4>
+                                <p class="tl-card-desc">Prácticas de laboratorio en aula diferente: scripting y administración.</p>
+                            </div>
+                        </div>
+                        <div class="tl-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+                            Fin de jornada — 10:00 pm
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIERNES -->
+                <div class="timeline-panel" id="org-viernes">
+                    <div class="timeline-header">
+                        <h2 class="timeline-title">Viernes — Día liviano</h2>
+                        <span class="timeline-badge">4 actividades</span>
+                    </div>
+                    <div class="timeline">
+                        <div class="tl-item cat-personal" style="--tl-delay:0">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">07:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Desarrollo Personal</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">Revisión semanal & reflexión</h4>
+                                <p class="tl-card-desc">Evaluación de logros de la semana y ajuste de metas.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-investigacion" style="--tl-delay:1">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">09:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Investigación</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Proyecto de portafolio personal</h4>
+                                <p class="tl-card-desc">Desarrollo de proyectos personales y práctica open-source.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-administrativa" style="--tl-delay:2">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">03:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Administrativa</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">Repaso & pendientes académicos</h4>
+                                <p class="tl-card-desc">Organización de trabajos, tareas y foros de la semana.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-academica tl-highlight" style="--tl-delay:3">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">06:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Académica</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">📍 Clase — Inteligencia de Negocios <span class="aula-badge">A411</span></h4>
+                                <p class="tl-card-desc">Data warehousing, OLAP y estrategia de datos empresariales.</p>
+                            </div>
+                        </div>
+                        <div class="tl-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+                            Fin de jornada — 08:00 pm
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SÁBADO -->
+                <div class="timeline-panel" id="org-sabado">
+                    <div class="timeline-header">
+                        <h2 class="timeline-title">Sábado — Recarga & proyectos</h2>
+                        <span class="timeline-badge">4 actividades</span>
+                    </div>
+                    <div class="timeline">
+                        <div class="tl-item cat-descanso" style="--tl-delay:0">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">08:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Descanso</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Descanso activo</h4>
+                                <p class="tl-card-desc">Actividad física, deporte o salida al aire libre.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-investigacion" style="--tl-delay:1">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">11:00 am</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Investigación</span><span class="tl-duration">3 h</span></div>
+                                <h4 class="tl-card-title">Deep work — Side projects</h4>
+                                <p class="tl-card-desc">Tiempo de concentración para proyectos de mayor profundidad técnica.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-personal" style="--tl-delay:2">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">03:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Desarrollo Personal</span><span class="tl-duration">2 h</span></div>
+                                <h4 class="tl-card-title">Cursos en línea & certificaciones</h4>
+                                <p class="tl-card-desc">Avance en plataformas de aprendizaje: Cisco, Oracle, etc.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item cat-administrativa" style="--tl-delay:3">
+                            <div class="tl-dot"></div>
+                            <div class="tl-time">07:00 pm</div>
+                            <div class="tl-card">
+                                <div class="tl-card-header"><span class="tl-tag">Administrativa</span><span class="tl-duration">1 h</span></div>
+                                <h4 class="tl-card-title">Planeación de la próxima semana</h4>
+                                <p class="tl-card-desc">Organización del calendario, tareas y prioridades académicas.</p>
+                            </div>
+                        </div>
+                        <div class="tl-end">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M9 12L11 14L15 10"/></svg>
+                            Fin de jornada — 08:00 pm
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================
+         MODAL — Detalle de materia
+         ========================================= -->
+    <div id="subjectModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-card">
+            <!-- Header del modal -->
+            <div class="modal-header" id="modalHeader">
+                <div class="modal-header-left">
+                    <span class="modal-badge" id="modalCodigo"></span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                </div>
+                <button class="modal-close" id="modalClose" aria-label="Cerrar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <!-- Cuerpo del modal -->
+            <div class="modal-body">
+                <div class="modal-detail-grid">
+                    <div class="modal-detail-item">
+                        <span class="modal-detail-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </span>
+                        <div>
+                            <p class="modal-detail-label">Salón</p>
+                            <p class="modal-detail-value" id="modalSalon"></p>
+                        </div>
+                    </div>
+                    <div class="modal-detail-item">
+                        <span class="modal-detail-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </span>
+                        <div>
+                            <p class="modal-detail-label">Docente</p>
+                            <p class="modal-detail-value" id="modalDocente"></p>
+                        </div>
+                    </div>
+                    <div class="modal-detail-item">
+                        <span class="modal-detail-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </span>
+                        <div>
+                            <p class="modal-detail-label">Horario</p>
+                            <p class="modal-detail-value" id="modalHorario"></p>
+                        </div>
+                    </div>
+                    <div class="modal-detail-item">
+                        <span class="modal-detail-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </span>
+                        <div>
+                            <p class="modal-detail-label">Modalidad</p>
+                            <p class="modal-detail-value" id="modalModalidad"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Créditos -->
+                <div class="modal-credits-row">
+                    <span class="modal-credits-label">Créditos académicos</span>
+                    <span class="modal-credits-value" id="modalCreditos"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - Idéntico al portafolio -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">© 2025 Diego Alejandro Casas Reyez. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Portafolio</a>
+                <span class="footer-separator">|</span>
+                <a href="horario.html" class="footer-link">Horario</a>
+                <span class="footer-separator">|</span>
+                <a href="#" class="footer-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Volver arriba</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/menu.js"></script>
+    <script src="JS/horario.js"></script>
+</body>
+</html>

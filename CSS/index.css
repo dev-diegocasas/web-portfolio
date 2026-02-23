@@ -1,0 +1,1308 @@
+/* ==========================================
+   CSS Variables - Design System
+   ========================================== */
+:root {
+    /* Colors */
+    --color-bg-primary: #FAFAF9;
+    --color-bg-secondary: #F5F5F4;
+    --color-bg-projects: #E8E3DF;
+    --color-text-primary: #1A1A1A;
+    --color-text-secondary: #57534E;
+    --color-text-tertiary: #78716C;
+    --color-accent-primary: #6B8E7F;
+    --color-accent-secondary: #C97C5D;
+    --color-border: #E7E5E4;
+    --color-white: #FFFFFF;
+    
+    /* Typography */
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Work Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --spacing-3xl: 6rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   Reset & Base Styles
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================
+   Header & Navigation
+   ========================================== */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(250, 250, 249, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.dot {
+    color: var(--color-accent-primary);
+}
+
+/* Hamburger Menu Button */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    z-index: 1001;
+    transition: transform var(--transition-base);
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.hamburger {
+    width: 28px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: 2px;
+    transition: all var(--transition-base);
+}
+
+.menu-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.menu-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Mobile Navigation */
+.nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--color-white);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    transition: right var(--transition-base);
+    z-index: 999;
+}
+
+.nav.active {
+    right: 0;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    display: inline-block;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-primary);
+    transition: width var(--transition-base);
+}
+
+.nav-link:hover {
+    color: var(--color-accent-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ==========================================
+   Main Content
+   ========================================== */
+main {
+    margin-top: 70px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   Hero Section - SIN IMAGEN
+   ========================================== */
+.hero {
+    padding: var(--spacing-3xl) var(--spacing-md);
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    animation: heroSlide 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes heroSlide {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hero-info {
+    text-align: center;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    font-weight: 300;
+}
+
+.contact-info {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+.contact-item:hover {
+    border-color: var(--color-accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    color: var(--color-accent-primary);
+}
+
+/* ==========================================
+   Sections
+   ========================================== */
+.section {
+    padding: var(--spacing-3xl) var(--spacing-md);
+    scroll-margin-top: 90px;
+}
+
+.section:nth-child(even) {
+    background-color: var(--color-bg-secondary);
+}
+
+/* Background especial para la sección de proyectos */
+.section-projects {
+    background-color: var(--color-bg-projects) !important;
+    position: relative;
+}
+
+.section-projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-secondary));
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    padding-bottom: var(--spacing-md);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent-primary);
+}
+
+/* ==========================================
+   Profile Section - Imagen a la derecha
+   ========================================== */
+.section-profile {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-image-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.profile-image-frame {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 3px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.profile-image-frame::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid var(--color-accent-primary);
+    border-radius: var(--radius-lg);
+    z-index: -1;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.profile-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+/* Responsive - Profile */
+@media (min-width: 768px) {
+    .profile-layout {
+        grid-template-columns: 1fr 320px;
+        gap: var(--spacing-2xl);
+    }
+    
+    .profile-image-wrapper {
+        max-width: 100%;
+    }
+}
+
+/* ==========================================
+   Experience Section
+   ========================================== */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.experience-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+}
+
+.experience-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--color-accent-primary);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-company {
+    font-size: 1rem;
+    color: var(--color-accent-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+    background-color: var(--color-bg-secondary);
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+}
+
+.card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.card-list li {
+    position: relative;
+    padding-left: var(--spacing-md);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.card-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-secondary);
+    font-weight: 600;
+}
+
+/* ==========================================
+   Projects Section - GALLERY GRID
+   ========================================== */
+.projects-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base);
+}
+
+.project-item:hover {
+    transform: translateY(-8px);
+}
+
+.project-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Aspect ratio 4:3 */
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-bg-secondary);
+}
+
+.project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.project-item:hover .project-img {
+    transform: scale(1.1);
+}
+
+/* Overlay que aparece al hacer hover */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 26, 26, 0.7) 0%,
+        rgba(26, 26, 26, 0.9) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.project-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform var(--transition-base) 0.1s;
+}
+
+.project-item:hover .project-overlay-title {
+    transform: translateY(0);
+}
+
+.project-overlay-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    transform: translateY(20px);
+    transition: transform var(--transition-base) 0.15s;
+}
+
+.project-item:hover .project-overlay-desc {
+    transform: translateY(0);
+}
+
+/* Iconos de tecnologías */
+.project-tech-icons {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: translateY(20px);
+    transition: transform var(--transition-base) 0.2s;
+}
+
+.project-item:hover .project-tech-icons {
+    transform: translateY(0);
+}
+
+.tech-icon {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-fast);
+}
+
+.tech-icon:hover {
+    background-color: var(--color-accent-primary);
+    color: var(--color-white);
+    transform: scale(1.1);
+}
+
+/* Botones de acción */
+.project-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    transform: translateY(20px);
+    transition: transform var(--transition-base) 0.25s;
+}
+
+.project-item:hover .project-actions {
+    transform: translateY(0);
+}
+
+.project-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--color-white);
+    border-radius: var(--radius-md);
+    color: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
+}
+
+.project-action-btn:hover {
+    background-color: var(--color-accent-primary);
+    border-color: var(--color-accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 142, 127, 0.4);
+}
+
+.project-action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive para tablet y desktop */
+@media (min-width: 768px) {
+    .projects-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .projects-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .project-overlay-title {
+        font-size: 1.75rem;
+    }
+    
+    .project-overlay-desc {
+        font-size: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .projects-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ==========================================
+   Education Section
+   ========================================== */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.education-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+}
+
+.education-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: var(--color-accent-primary);
+}
+
+.card-institution {
+    font-size: 1rem;
+    color: var(--color-accent-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Certificaciones */
+.certifications-section {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 2px solid var(--color-border);
+}
+
+.certifications-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-accent-primary);
+}
+
+.certifications-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cert-item {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-fast);
+}
+
+.cert-item:hover {
+    border-color: var(--color-accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.cert-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+}
+
+.cert-org {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+}
+
+.cert-date {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+}
+
+/* ==========================================
+   Skills Section
+   ========================================== */
+.skills-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+    grid-template-columns: 1fr;
+}
+
+.skill-category {
+    margin-bottom: var(--spacing-lg);
+}
+
+.skill-category-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.5px;
+}
+
+.tech-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tech-badge {
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    padding: 11px 20px;
+    border-radius: 24px;
+    border: 2px solid var(--color-border);
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.tech-badge:hover {
+    border-color: var(--color-accent-primary);
+    background-color: var(--color-accent-primary);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(107, 142, 127, 0.25);
+}
+
+/* Competencias Blandas */
+.soft-skills-compact {
+    padding-top: var(--spacing-xl);
+    border-top: 2px solid var(--color-border);
+    margin-top: var(--spacing-xl);
+}
+
+.soft-skills-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.soft-skill-badge {
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    background-color: var(--color-white);
+    padding: 11px 20px;
+    border-radius: 24px;
+    border: 2px solid var(--color-border);
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.soft-skill-badge:hover {
+    border-color: var(--color-accent-secondary);
+    background-color: var(--color-accent-secondary);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(201, 124, 93, 0.25);
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+.footer {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-tertiary);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--color-bg-primary);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+    color: var(--color-accent-primary);
+}
+
+.footer-separator {
+    color: var(--color-text-tertiary);
+}
+
+/* ==========================================
+   Tablet & Desktop Styles (≥768px)
+   ========================================== */
+@media (min-width: 768px) {
+    /* Header Desktop */
+    .menu-toggle {
+        display: none;
+    }
+    
+    .nav {
+        position: static;
+        width: auto;
+        height: auto;
+        max-width: none;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    .nav-list {
+        flex-direction: row;
+        gap: var(--spacing-lg);
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+    }
+    
+    /* Sections Desktop */
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .profile-text {
+        font-size: 1rem;
+    }
+
+    /* Skills Grid Desktop */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Certifications Grid Desktop */
+    .certifications-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==========================================
+   Large Desktop (≥1024px)
+   ========================================== */
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+.text-accent {
+    color: var(--color-accent-primary);
+}
+
+.bg-accent {
+    background-color: var(--color-accent-primary);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .footer,
+    .menu-toggle {
+        display: none;
+    }
+    
+    main {
+        margin-top: 0;
+    }
+    
+    .section {
+        page-break-inside: avoid;
+    }
+}
+
+/* --- Icon-only contact buttons (añadir al final de styles.css) --- */
+.contact-info.contact-icons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center; /* o flex-start si lo quieres alineado a la izquierda */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Reciclamos la clase .contact-item pero la adaptamos para icon-only */
+.contact-item.icon-only {
+  /* convertimos el bloque a un botón/ícono centrado */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;            /* tamaño del botón (ajusta a 56/72 si prefieres) */
+  height: 48px;           /* alto similar a la imagen que mostraste */
+  padding: 0;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  transition: all var(--transition-base);
+  color: var(--color-accent-primary); /* color del icono */
+  text-decoration: none;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+/* SVG dentro del botón */
+.contact-item.icon-only svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* hover/focus mantiene tu estética */
+.contact-item.icon-only:hover,
+.contact-item.icon-only:focus {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-primary);
+  box-shadow: var(--shadow-md);
+  background-color: rgba(107,142,127,0.04); /* ligero tinte del acento */
+  outline: none;
+}
+
+/* ocultamos cualquier texto visible (si por error queda) y dejamos solo el label accesible para screen-readers */
+.contact-item.icon-only > span:not(.sr-only) {
+  display: none;
+}
+
+/* clase de utilidad: texto accesible solo para screen-readers */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ------------- Patch: Mejoras overlay proyectos ------------- */
+/* Reemplazar reglas previas de project-image-container / project-img / project-overlay y relacionadas */
+
+.project-image-container {
+    position: relative;
+    width: 100%;
+    /* Ajustado a 3:2 para dar más altura y evitar recorte visual */
+    padding-bottom: 66.66%;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-bg-secondary);
+}
+
+/* Imagen absoluta, ocupa todo el contenedor */
+.project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+    will-change: transform;
+}
+
+/* Overlay absoluto que ocupa la tarjeta; contenido en columna */
+.project-overlay {
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* acciones abajo */
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0.45) 40%, rgba(10,10,10,0.82) 100%);
+    color: var(--color-white);
+    opacity: 0;
+    transform: translateY(8%);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+    z-index: 2;
+    /* si el contenido es más alto que el área, permitimos scroll interno */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: inherit; /* respeta los bordes redondeados del contenedor */
+}
+
+/* Mostrar overlay al hover, con animación suave */
+.project-item:hover .project-img {
+    transform: scale(1.05);
+}
+.project-item:hover .project-overlay,
+.project-item:focus-within .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Título dentro del overlay: tamaño controlado y multilinea */
+.project-overlay-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--color-white);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+    /* permite hasta 2 líneas sin desbordar visualmente */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Descripción: legible, con límite y scroll si hace falta */
+.project-overlay-desc {
+    margin: 0;
+    color: rgba(255,255,255,0.92);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-height: 5.6rem; /* límite visual razonable */
+    overflow: auto;
+}
+
+/* Tech icons y acciones se colocan al final (abajo) y se adaptan si hay poco espacio */
+.project-tech-icons {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.project-actions {
+    display:flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 6px;
+}
+
+/* Botones dentro del overlay: tamaño compacto */
+.project-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.92);
+    color: var(--color-text-primary);
+    border: none;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.project-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Cuando el overlay tenga mucho contenido, mostrar scroll pero ocultar barras en navegadores */
+.project-overlay::-webkit-scrollbar { width: 8px; }
+.project-overlay::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 6px; }
+
+/* Ajustes responsivos: textos más pequeños en móviles y padding más generoso en desktop */
+@media (max-width: 720px) {
+    .project-image-container { padding-bottom: 75%; } /* más alto en móvil para mostrar más verticalidad */
+    .project-overlay { padding: calc(var(--spacing-sm)); }
+    .project-overlay-title { font-size: 1rem; -webkit-line-clamp: 3; }
+    .project-overlay-desc { font-size: 0.92rem; max-height: 6.5rem; }
+}
+
+@media (min-width: 1024px) {
+    .project-image-container { padding-bottom: 60%; } /* más ancho en desktop */
+    .project-overlay { padding: var(--spacing-lg); }
+    .project-overlay-title { font-size: 1.25rem; }
+    .project-overlay-desc { font-size: 1rem; }
+}
+/* ------------- fin del patch ------------- */
+
+/* ==== Patch: Contenedor global (solo CSS) ==== */
+:root {
+  /* ancho máximo del contenido (ajusta 1000/1100/1200 según prefieras) */
+  --content-max-width: 1100px;
+}
+
+/* Centrar y limitar los contenedores principales */
+.header-container,
+.section-container,
+.hero-content {
+  max-width: var(--content-max-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* Asegurar que main también se limite y quede centrado */
+main {
+  max-width: 100%;
+}
+
+/* Hacer que la galería de proyectos no use todo el ancho de la sección */
+.projects-gallery {
+  max-width: calc(var(--content-max-width) - 40px); /* le damos algo de respiración */
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* columnas un poco más estrechas */
+  gap: var(--spacing-lg);
+}
+
+/* Ajuste específico para evitar que botones/etiquetas salgan fuera del overlay */
+.project-overlay { 
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* Si quieres que el header tenga la misma anchura visual (sin cambiar la estructura) */
+#header { 
+  /* deja la barra del header full-width pero su contenido centrado por el header-container ya limitado */
+}
+
+/* pequeño ajuste responsivo para móviles */
+@media (max-width: 720px) {
+  :root { --content-max-width: 100%; }
+  .projects-gallery { max-width: 100%; grid-template-columns: repeat(1, 1fr); }
+}
