@@ -1,0 +1,203 @@
+// ==========================================================
+//  base/_base.scss
+//  Reset, tipografía base y estilos globales del documento.
+// ==========================================================
+
+@use '../abstracts/variables' as v;
+
+// ----------------------------------------------------------
+// Custom Properties (CSS vars) — necesarios para compatibilidad
+// con JS que lee var() del DOM (modales, chips dinámicos)
+// ----------------------------------------------------------
+:root {
+  // Paleta principal
+  --color-bg-primary:       #{v.$color-bg-primary};
+  --color-bg-secondary:     #{v.$color-bg-secondary};
+  --color-bg-projects:      #{v.$color-bg-projects};
+  --color-text-primary:     #{v.$color-text-primary};
+  --color-text-secondary:   #{v.$color-text-secondary};
+  --color-text-tertiary:    #{v.$color-text-tertiary};
+  --color-accent-primary:   #{v.$color-accent-primary};
+  --color-accent-secondary: #{v.$color-accent-secondary};
+  --color-border:           #{v.$color-border};
+  --color-white:            #{v.$color-white};
+
+  // Tipografía
+  --font-display: #{v.$font-display};
+  --font-body:    #{v.$font-body};
+  --font-mono:    #{v.$font-mono};
+
+  // Espaciado
+  --spacing-xs:  #{v.$spacing-xs};
+  --spacing-sm:  #{v.$spacing-sm};
+  --spacing-md:  #{v.$spacing-md};
+  --spacing-lg:  #{v.$spacing-lg};
+  --spacing-xl:  #{v.$spacing-xl};
+  --spacing-2xl: #{v.$spacing-2xl};
+  --spacing-3xl: #{v.$spacing-3xl};
+
+  // Radios
+  --radius-sm: #{v.$radius-sm};
+  --radius-md: #{v.$radius-md};
+  --radius-lg: #{v.$radius-lg};
+
+  // Sombras
+  --shadow-sm: #{v.$shadow-sm};
+  --shadow-md: #{v.$shadow-md};
+  --shadow-lg: #{v.$shadow-lg};
+
+  // Transiciones
+  --transition-fast: #{v.$transition-fast};
+  --transition-base: #{v.$transition-base};
+  --transition-slow: #{v.$transition-slow};
+
+  // Layout
+  --content-max-width: #{v.$content-max-width};
+
+  // Chips materias
+  --chip-so-bg:     #{v.$chip-so-bg};
+  --chip-so-color:  #{v.$chip-so-color};
+  --chip-so-border: #{v.$chip-so-border};
+  --chip-web-bg:     #{v.$chip-web-bg};
+  --chip-web-color:  #{v.$chip-web-color};
+  --chip-web-border: #{v.$chip-web-border};
+  --chip-emc-bg:     #{v.$chip-emc-bg};
+  --chip-emc-color:  #{v.$chip-emc-color};
+  --chip-emc-border: #{v.$chip-emc-border};
+  --chip-ol-bg:     #{v.$chip-ol-bg};
+  --chip-ol-color:  #{v.$chip-ol-color};
+  --chip-ol-border: #{v.$chip-ol-border};
+  --chip-in-bg:     #{v.$chip-in-bg};
+  --chip-in-color:  #{v.$chip-in-color};
+  --chip-in-border: #{v.$chip-in-border};
+  --chip-leg-bg:     #{v.$chip-leg-bg};
+  --chip-leg-color:  #{v.$chip-leg-color};
+  --chip-leg-border: #{v.$chip-leg-border};
+  --chip-eng-bg:     #{v.$chip-eng-bg};
+  --chip-eng-color:  #{v.$chip-eng-color};
+  --chip-eng-border: #{v.$chip-eng-border};
+  --chip-ea-bg:     #{v.$chip-ea-bg};
+  --chip-ea-color:  #{v.$chip-ea-color};
+  --chip-ea-border: #{v.$chip-ea-border};
+
+  // Categorías organigrama
+  --cat-academica-bg:         #{v.$cat-academica-bg};
+  --cat-academica-color:      #{v.$cat-academica-color};
+  --cat-academica-border:     #{v.$cat-academica-border};
+  --cat-investigacion-bg:     #{v.$cat-investigacion-bg};
+  --cat-investigacion-color:  #{v.$cat-investigacion-color};
+  --cat-investigacion-border: #{v.$cat-investigacion-border};
+  --cat-personal-bg:          #{v.$cat-personal-bg};
+  --cat-personal-color:       #{v.$cat-personal-color};
+  --cat-personal-border:      #{v.$cat-personal-border};
+  --cat-administrativa-bg:    #{v.$cat-administrativa-bg};
+  --cat-administrativa-color: #{v.$cat-administrativa-color};
+  --cat-administrativa-border:#{v.$cat-administrativa-border};
+  --cat-descanso-bg:          #{v.$cat-descanso-bg};
+  --cat-descanso-color:       #{v.$cat-descanso-color};
+  --cat-descanso-border:      #{v.$cat-descanso-border};
+}
+
+// ----------------------------------------------------------
+// Reset universal
+// ----------------------------------------------------------
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: v.$font-body;
+  font-weight: 400;
+  line-height: 1.6;
+  color: v.$color-text-primary;
+  background-color: v.$color-bg-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color v.$transition-fast;
+}
+
+ul {
+  list-style: none;
+}
+
+// ----------------------------------------------------------
+// Animaciones base
+// ----------------------------------------------------------
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes heroSlide {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+// ----------------------------------------------------------
+// Accesibilidad: reduce-motion
+// ----------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// ----------------------------------------------------------
+// Print
+// ----------------------------------------------------------
+@media print {
+  .header,
+  .footer,
+  .menu-toggle { display: none; }
+
+  main { margin-top: 0; }
+
+  .section { page-break-inside: avoid; }
+}
+
+// ----------------------------------------------------------
+// Utilidades globales
+// ----------------------------------------------------------
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-accent { color: v.$color-accent-primary; }
+.bg-accent   { background-color: v.$color-accent-primary; }

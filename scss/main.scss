@@ -1,0 +1,25 @@
+// ==========================================================
+//  main.scss — Entry point del portafolio (index.html)
+//
+//  Orden de importación:
+//    1. Abstracts  (variables, mixins) — sin output CSS
+//    2. Base       (reset, tipografía, animaciones)
+//    3. Layout     (header, nav, footer)
+//    4. Components (héroe, secciones, tarjetas, proyectos)
+// ==========================================================
+
+// 1. Abstracts — solo lógica, sin output
+@use 'abstracts/variables' as v;
+@use 'abstracts/mixins'   as m;
+
+// 2. Base
+@use 'base/base';
+
+// 3. Layout
+@use 'layout/header';
+
+// 4. Components
+@use 'components/hero';
+@use 'components/sections';
+@use 'components/cards';
+@use 'components/projects';

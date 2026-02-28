@@ -1,0 +1,112 @@
+// ==========================================================
+//  components/_hero.scss
+//  Sección hero del portafolio y botones de contacto.
+// ==========================================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// ----------------------------------------------------------
+// Hero
+// ----------------------------------------------------------
+.hero {
+  padding: v.$spacing-3xl v.$spacing-md;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, v.$color-bg-primary 0%, v.$color-bg-secondary 100%);
+}
+
+.hero-content {
+  @include m.section-container;
+  width: 100%;
+  text-align: center;
+  animation: heroSlide 0.8s ease-out 0.2s backwards;
+}
+
+.hero-info { text-align: center; }
+
+.hero-title {
+  font-family: v.$font-display;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: v.$spacing-xs;
+  line-height: 1.2;
+
+  @include m.respond-to(md) { font-size: 3rem; }
+  @include m.respond-to(lg) { font-size: 3.5rem; }
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: v.$color-text-secondary;
+  margin-bottom: v.$spacing-xl;
+  font-weight: 300;
+
+  @include m.respond-to(md) { font-size: 1.5rem; }
+}
+
+// ----------------------------------------------------------
+// Contact icons
+// ----------------------------------------------------------
+.contact-info {
+  display: flex;
+  gap: v.$spacing-md;
+  margin-top: v.$spacing-xl;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &.contact-icons {
+    align-items: center;
+  }
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: v.$spacing-xs;
+  padding: v.$spacing-sm v.$spacing-md;
+  background-color: v.$color-white;
+  border: 2px solid v.$color-border;
+  border-radius: v.$radius-lg;
+  transition: all v.$transition-base;
+  color: v.$color-text-secondary;
+  font-size: 0.95rem;
+
+  &:hover {
+    border-color: v.$color-accent-primary;
+    transform: translateY(-2px);
+    box-shadow: v.$shadow-md;
+  }
+
+  // Variante icon-only
+  &.icon-only {
+    @include m.flex-center;
+    width: 64px;
+    height: 48px;
+    padding: 0;
+    border-radius: 12px;
+    color: v.$color-accent-primary;
+    box-shadow: v.$shadow-sm;
+    position: relative;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    > span:not(.sr-only) { display: none; }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px);
+      border-color: v.$color-accent-primary;
+      box-shadow: v.$shadow-md;
+      background-color: rgba(107, 142, 127, 0.04);
+      outline: none;
+    }
+  }
+}

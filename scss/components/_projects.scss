@@ -1,0 +1,224 @@
+// ==========================================================
+//  components/_projects.scss
+//  Galería de proyectos — estilo editorial moderno
+//  Tarjetas con índice numérico, imagen contenida e info
+//  clara. Sin desbordamiento, hover sofisticado.
+// ==========================================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// ----------------------------------------------------------
+// Sección wrapper
+// ----------------------------------------------------------
+.section-projects {
+  background-color: v.$color-bg-projects !important;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, v.$color-accent-primary, v.$color-accent-secondary);
+  }
+}
+
+// ----------------------------------------------------------
+// Header de la sección
+// ----------------------------------------------------------
+.projects-header {
+  margin-bottom: v.$spacing-2xl;
+}
+
+.projects-subtitle {
+  font-family: v.$font-mono;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: v.$color-text-tertiary;
+  margin-top: calc(-1 * v.$spacing-md);
+}
+
+// ----------------------------------------------------------
+// Grid de tarjetas
+// ----------------------------------------------------------
+.projects-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$spacing-lg;
+
+  @include m.respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$spacing-lg;
+  }
+}
+
+// ----------------------------------------------------------
+// Tarjeta individual
+// ----------------------------------------------------------
+.project-card {
+  background: v.$color-white;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+  border: 1px solid v.$color-border;
+  transition: transform v.$transition-base, box-shadow v.$transition-base, border-color v.$transition-base;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px rgba(26, 26, 26, 0.15);
+    border-color: #ccc;
+
+    .project-img    { transform: scale(1.04); }
+    .project-index  { color: v.$color-accent-primary; }
+    .project-btn    { background: v.$color-accent-primary; color: v.$color-white; border-color: v.$color-accent-primary; }
+  }
+}
+
+.project-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+// ----------------------------------------------------------
+// Número de índice
+// ----------------------------------------------------------
+.project-index {
+  font-family: v.$font-mono;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: v.$color-text-tertiary;
+  padding: v.$spacing-sm v.$spacing-md 0;
+  transition: color v.$transition-fast;
+}
+
+// ----------------------------------------------------------
+// Imagen — contenida, sin desbordamiento
+// ----------------------------------------------------------
+.project-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-top: v.$spacing-xs;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform v.$transition-slow;
+}
+
+.project-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(26,26,26,0.08) 100%);
+  pointer-events: none;
+}
+
+// ----------------------------------------------------------
+// Info inferior
+// ----------------------------------------------------------
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-sm;
+  padding: v.$spacing-md;
+  flex: 1;
+}
+
+.project-info-top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-name {
+  font-family: v.$font-display;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: v.$color-text-primary;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+// ----------------------------------------------------------
+// Tags de tecnología
+// ----------------------------------------------------------
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-tag {
+  font-family: v.$font-mono;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: v.$color-bg-secondary;
+  color: v.$color-text-secondary;
+  border: 1px solid v.$color-border;
+  white-space: nowrap;
+}
+
+// ----------------------------------------------------------
+// Descripción
+// ----------------------------------------------------------
+.project-desc {
+  font-size: 0.875rem;
+  color: v.$color-text-secondary;
+  line-height: 1.6;
+  flex: 1;
+}
+
+// ----------------------------------------------------------
+// Botón de acción
+// ----------------------------------------------------------
+.project-actions {
+  margin-top: auto;
+  padding-top: v.$spacing-sm;
+  border-top: 1px solid v.$color-border;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: v.$radius-md;
+  border: 1px solid v.$color-border;
+  background: transparent;
+  color: v.$color-text-secondary;
+  font-family: v.$font-mono;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all v.$transition-fast;
+
+  svg { flex-shrink: 0; }
+
+  &:hover {
+    background: v.$color-accent-primary;
+    color: v.$color-white;
+    border-color: v.$color-accent-primary;
+  }
+}
+
+// ----------------------------------------------------------
+// Responsive
+// ----------------------------------------------------------
+@include m.respond-to(max-sm) {
+  .projects-gallery      { gap: v.$spacing-md; }
+  .project-image-wrap    { aspect-ratio: 4 / 3; }
+  .project-name          { font-size: 1.1rem; }
+}

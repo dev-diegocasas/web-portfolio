@@ -1,0 +1,22 @@
+// ==========================================================
+//  horario.scss — Entry point del módulo académico
+//
+//  Orden de importación:
+//    1. Abstracts  (variables, mixins) — sin output CSS
+//    2. Base       (reset, custom props) — compartido con main.scss
+//    3. Layout     (header, nav, footer) — compartido
+//    4. Pages      (horario: schedule, timeline, modal)
+// ==========================================================
+
+// 1. Abstracts
+@use 'abstracts/variables' as v;
+@use 'abstracts/mixins'   as m;
+
+// 2. Base
+@use 'base/base';
+
+// 3. Layout
+@use 'layout/header';
+
+// 4. Page-specific
+@use 'pages/horario';

@@ -1,0 +1,251 @@
+// ==========================================================
+//  components/_cards.scss
+//  Tarjetas reutilizables: experiencia, educación,
+//  certificaciones y badges de competencias.
+// ==========================================================
+
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// ----------------------------------------------------------
+// Card header compartido
+// ----------------------------------------------------------
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: v.$spacing-md;
+  flex-wrap: wrap;
+  gap: v.$spacing-sm;
+}
+
+.card-title {
+  font-family: v.$font-display;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: v.$color-text-primary;
+  margin-bottom: v.$spacing-xs;
+}
+
+.card-date {
+  font-family: v.$font-mono;
+  font-size: 0.85rem;
+  color: v.$color-text-tertiary;
+  background-color: v.$color-bg-secondary;
+  padding: 4px 12px;
+  border-radius: v.$radius-sm;
+  white-space: nowrap;
+}
+
+// ----------------------------------------------------------
+// Experience cards
+// ----------------------------------------------------------
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-lg;
+}
+
+.experience-card {
+  @include m.card-hover;
+  padding: v.$spacing-lg;
+}
+
+.card-company {
+  font-size: 1rem;
+  color: v.$color-accent-primary;
+  font-weight: 500;
+  margin-bottom: v.$spacing-sm;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-sm;
+
+  li {
+    position: relative;
+    padding-left: v.$spacing-md;
+    color: v.$color-text-secondary;
+    line-height: 1.6;
+
+    &::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: v.$color-accent-secondary;
+      font-weight: 600;
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// Education cards
+// ----------------------------------------------------------
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-lg;
+}
+
+.education-card {
+  @include m.card-hover;
+  padding: v.$spacing-lg;
+}
+
+.card-institution {
+  font-size: 1rem;
+  color: v.$color-accent-primary;
+  font-weight: 500;
+  margin-bottom: v.$spacing-sm;
+}
+
+.card-description {
+  color: v.$color-text-secondary;
+  line-height: 1.6;
+}
+
+// ----------------------------------------------------------
+// Certifications
+// ----------------------------------------------------------
+.certifications-section {
+  margin-top: v.$spacing-2xl;
+  padding-top: v.$spacing-2xl;
+  border-top: 2px solid v.$color-border;
+}
+
+.certifications-title {
+  font-family: v.$font-display;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: v.$spacing-lg;
+  color: v.$color-accent-primary;
+}
+
+.certifications-grid {
+  display: grid;
+  gap: v.$spacing-md;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  @include m.respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cert-item {
+  background-color: v.$color-white;
+  padding: v.$spacing-md;
+  border-radius: v.$radius-md;
+  border: 1px solid v.$color-border;
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-xs;
+  transition: all v.$transition-fast;
+
+  &:hover {
+    border-color: v.$color-accent-secondary;
+    transform: translateY(-2px);
+    box-shadow: v.$shadow-sm;
+  }
+}
+
+.cert-name {
+  font-weight: 600;
+  color: v.$color-text-primary;
+  font-size: 0.95rem;
+}
+
+.cert-org {
+  color: v.$color-text-secondary;
+  font-size: 0.85rem;
+}
+
+.cert-date {
+  font-family: v.$font-mono;
+  font-size: 0.75rem;
+  color: v.$color-text-tertiary;
+}
+
+// ----------------------------------------------------------
+// Skills / Competencias
+// ----------------------------------------------------------
+.skills-grid {
+  display: grid;
+  gap: v.$spacing-xl;
+  grid-template-columns: 1fr;
+
+  @include m.respond-to(md) { grid-template-columns: repeat(2, 1fr); }
+  @include m.respond-to(lg) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.skill-category { margin-bottom: v.$spacing-lg; }
+
+.skill-category-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: v.$color-text-primary;
+  margin-bottom: v.$spacing-md;
+  letter-spacing: 0.5px;
+}
+
+.tech-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$spacing-sm;
+}
+
+.tech-badge {
+  font-size: 0.95rem;
+  color: v.$color-text-primary;
+  background-color: v.$color-white;
+  padding: 11px 20px;
+  border-radius: 24px;
+  border: 2px solid v.$color-border;
+  transition: all v.$transition-fast;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+
+  &:hover {
+    border-color: v.$color-accent-primary;
+    background-color: v.$color-accent-primary;
+    color: v.$color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(107, 142, 127, 0.25);
+  }
+}
+
+.soft-skills-compact {
+  padding-top: v.$spacing-xl;
+  border-top: 2px solid v.$color-border;
+  margin-top: v.$spacing-xl;
+}
+
+.soft-skills-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$spacing-sm;
+}
+
+.soft-skill-badge {
+  font-size: 0.95rem;
+  color: v.$color-text-primary;
+  background-color: v.$color-white;
+  padding: 11px 20px;
+  border-radius: 24px;
+  border: 2px solid v.$color-border;
+  transition: all v.$transition-fast;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+
+  &:hover {
+    border-color: v.$color-accent-secondary;
+    background-color: v.$color-accent-secondary;
+    color: v.$color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(201, 124, 93, 0.25);
+  }
+}
