@@ -120,12 +120,5 @@ Página adicional integrada al portafolio que incluye dos vistas accesibles medi
 
 ---
 
-## 🚀 Deploy
-
-Desplegado mediante **Netlify Drop**.  
-El proyecto es completamente estático — solo se sube la carpeta con los `.html`, `/CSS`, `/JS` e `/Images`.  
-La carpeta `/scss` no necesita incluirse en producción.
-
----
 
 
